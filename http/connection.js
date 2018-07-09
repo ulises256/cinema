@@ -3,6 +3,7 @@ var Sequelize = require('sequelize');
 
 /**
  * Base de datos de google cloud
+ * Esta es la base de datos principal, tened cuidado papus
  */
 
 var sequelize = new Sequelize('cineclub', 'root', 'qwertyuiop', {
