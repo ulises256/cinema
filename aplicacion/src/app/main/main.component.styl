@@ -1,0 +1,81 @@
+animation(animation, duration = 1s, delay = 0s)
+    -webkit-animation animation duration cubic-bezier(0.445, 0.050, 0.550, 0.950) !important
+    animation animation duration cubic-bezier(0.445, 0.050, 0.550, 0.950) !important
+    -webkit-transition all duration ease-in-out !important
+    -moz-transition all duration ease-in-out !important
+    -o-transition all duration ease-in-out !important
+    transition all duration ease-in-out !important
+    -webkit-transition-delay delay ease-in-out !important
+    transition-delay delay ease-in-out !important
+
+
+main
+    width 100%
+    height 100vh
+    display grid
+    grid-gap 10px
+    grid-template-columns 100% //indica que es de una columna de 100% de anccho
+    grid-template-rows 1fr 10fr 1fr //indica qie son 3 filas
+    header
+        width 100%
+        z-index 10
+        #menu
+            margin 0px !important
+            transition all 0.5s ease 
+            mat-toolbar-row
+                display flex
+                flex-direction row
+                justify-content space-around
+                img
+                    height 50px
+                .busqueda
+                    width 100%
+                    form
+                        width 100% !important
+                        height 60px !important
+                        background-color white !important
+                        border-radius 40px !important
+                        display flex
+                        justify-content: center
+                        align-items: center
+                        autocomplete
+                            height 40px !important
+                            width 98% !important
+                            margin 0px 10px 20px 0px
+                .botones
+                    color white !important
+        #menu-movil
+            margin 0px !important
+            transition all 0.5s ease 
+            mat-toolbar-row
+                display flex
+                flex-direction row
+                justify-content space-around
+                .menu, .inicio, .user
+                    width 100%
+    .contenido
+        width 100%
+        height 100%
+    .footer
+        display flex
+        background-color gray
+        width 100%
+        height 100%
+        z-index 2
+        .redes-sociales
+            display flex
+            flex-direction column
+            flex 1
+            .iconos-sociales
+                display flex
+                flex-direction row
+                margin 10px 10px 10px 10px
+        .starbrand
+            flex 1
+            display flex
+            color white
+            flex-direction row
+            justify-content flex-end
+            img 
+                width 100%
+                height 100%

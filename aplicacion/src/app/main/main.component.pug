@@ -1,0 +1,16 @@
+main
+    header
+        include ./partials/header.pug
+    .contenido([@routerTransition]="getState(o)")
+        router-outlet(#o="outlet")
+    .footer(color="primary")
+        .starbrand
+            .redes-sociales
+                p Siguenos en:
+                .iconos-sociales
+                    a(href="https://es-la.facebook.com/CadaNinoUnaSonrisa/")
+                        img(src="assets/images/facebook-32.png" alt="facebook-logo"  href="https://es-la.facebook.com/CadaNinoUnaSonrisa/")
+            .starbrand
+                p Desarrollado por
+                a(href="https://www.starbrand.mx")
+                    img(src="assets/images/starbrand.svg" alt="Starbrand-logo"  href="https://www.starbrand.mx")

@@ -1,0 +1,34 @@
+mobile = 'screen and (max-width: 768px)'
+
+.home
+    display flex
+    width 100%
+    height 100%
+    justify-content center
+    align-items center
+    .home-content
+        display grid
+        grid-gap 10px
+        grid-template-areas: "nosotros comentarios facebook-button"
+        width 90%
+        height 100%
+        section
+            height 100%
+            width 100%
+            flex 1
+            &.nosotros, .comentarios
+                width 100%
+                height 100%
+                .mat-list
+                    width 80%
+            &.nosotros
+                grid-area nosotros
+            &.comentarios
+                grid-area comentarios
+            &.facebook-button
+                grid-area facebook-button
+                width 100%
+                height 100%
+                display flex
+                justify-content center
+                align-items center

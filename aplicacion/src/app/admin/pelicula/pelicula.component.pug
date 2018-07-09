@@ -1,0 +1,19 @@
+.peliculas
+    .peliculas-content
+        mat-card.busqueda
+            form.filtro
+                .autocomplete
+                    autocomplete([array]="peliculas" [label]="'Buscar Pelicula'" (selectItem)="verPelicula($event.id)")
+                button.buscar(mat-button (click)="agregarPelicula()")
+                    mat-icon add_circle
+        mat-card.peliculas
+            mat-toolbar(color="primary").titulo
+                mat-toolbar-row Lista de proyectos
+            mat-list
+                mat-list-item( *ngFor="let pelicula of peliculas").proyecto
+                    h2((click)="verPelicula(pelicula.getId())") {{pelicula.nombre}}
+                    span.spaciador
+                    button.right(mat-button (click)="eliminarPelicula(pelicula.getId())")
+                        mat-icon delete
+                    mat-divider
+

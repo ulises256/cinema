@@ -1,0 +1,50 @@
+
+.perfil-pelicula
+    .perfil-pelicula-content
+        mat-card.encabezado
+            .titulo
+                h1(*ngIf="pelicula") {{pelicula.getNombre()}}
+                button(mat-icon-button (click)="editar()" matTooltip="{{editable.tooltip}}")
+                    mat-icon {{editable.icon}}
+            .info
+                .video
+                    videojs(*ngIf="pelicula" [url]="pelicula?.getVideo()" [autoplay]="false")
+                .detalles(*ngIf="pelicula")
+                    mat-form-field(class="input-layout")
+                        input(
+                                [disabled]="editable.disiabled"
+                                matInput name="nombre"
+                                placeholder="Nombre de la pelicula"
+                                [ngModel]="pelicula.getNombre()"
+                                (ngModelChange)="pelicula.setNombre($event)"
+                                autocomplete="off" 
+                                required)
+                    mat-form-field(class="input-layout")
+                        textarea(
+                                [disabled]="editable.disiabled"
+                                matInput name="historia"
+                                placeholder="Historia o descripción de la pelicula"
+                                [ngModel]="pelicula.getHistoria()"
+                                (ngModelChange)="pelicula.setHistoria($event)"
+                                autocomplete="off"
+                                rows="15"
+                                required)
+            .portadas
+                h2 Portadas de la película
+                .file(*ngIf="pelicula?.getPortadas()?.length < 2")
+                    .dropi
+                        dropify( [(ngModel)]="portada.imagen"  (remove)="portada.setImagen($event)")                
+                    .botones
+                        button(mat-button matTooltip="Guardar" (click)="agregarPortada()" [ngStyle]="{'background-color':'green'}")
+                            mat-icon save
+                .portada2
+                    p(*ngIf="pelicula?.getPortadas()?.length == 0") Aun no hay portadas
+                    mat-grid-list(cols="2" rowHeight="1:1" gutterSize="25px")
+                        mat-grid-tile( class="image_wrapper" *ngFor="let image of pelicula?.getPortadas()" )
+                            img(*ngIf="image" [src]="domSanitizer.bypassSecurityTrustUrl(image.getImagen())")
+                            button(mat-icon-button class="remove" color="warn" (click)="quitarPortada(image)" matTooltip="Eliminar Portada")
+                                mat-icon cancel
+        mat-card.reparto
+            app-reparto([reparto]="pelicula?.getReparto()")
+        mat-card.produccion
+            app-produccion([produccion]="pelicula?.getProduccion()")

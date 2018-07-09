@@ -1,0 +1,15 @@
+
+.reparto
+    .reparto-content
+        .titulo
+            h1 Reparto de la Película
+            button(mat-icon-button (click)="agregarActor()" matTooltip="Añadir Actor")
+                mat-icon person_add
+        .actores(*ngIf="reparto")
+            mat-grid-list(cols="5" rowHeight="1:1" gutterSize="25px")
+                mat-grid-tile(class="image_wrapper"  *ngFor="let actor of reparto.getActores()" )
+                    img([src]="actor.getFoto()?.imagen" (click)="agregarActor(actor)")
+                    mat-grid-tile-footer
+                        p {{actor.getNombre()}}
+                    button(mat-icon-button class="remove" color="warn" (click)="eliminarActor(actor)" matTooltip="Quitar Actor")
+                        mat-icon cancel

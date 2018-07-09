@@ -1,0 +1,42 @@
+mat-toolbar(id="menu" color="primary" class="mat-elevation-z8" role="header" *ngIf="!mobileQuery.matches")
+    mat-toolbar-row
+        a(mat-button  [routerLink]="['/']" [routerLinkActive]="['active']").active
+          img(src="favicon.ico")
+        .busqueda
+            form
+                autocomplete([array]="proyectos" [label]="'Buscar proyecto'" (selectItem)="verProyecto($event.id)")
+        .botones
+            a(mat-button [routerLink]="navLinks[0].path" [routerLinkActive]="['active']").active {{navLinks[0].label}}
+            a(mat-button [routerLink]="navLinks[1].path" [routerLinkActive]="['active']").active {{navLinks[1].label}}
+            a(mat-button [routerLink]="navLinks[2].path"  [routerLinkActive]="['active']" *ngIf="!(usuario && usuario.getId())").active {{navLinks[2].label}}
+            a(mat-button  *ngIf="usuario && usuario.getId()" [mat-menu-trigger-for]="menuUser").active
+                mat-icon account_circle
+
+mat-toolbar(id="menu-movil" color="primary" class="mat-elevation-z8" role="header" *ngIf="mobileQuery.matches")
+    mat-toolbar-row
+        button(mat-button [mat-menu-trigger-for]="menu").menu
+            mat-icon menu
+        a(mat-button  [routerLink]="['/']" [routerLinkActive]="['active-nav']").inicio
+            img(src="favicon.ico")
+        a(mat-button [routerLink]="navLinks[2].path"  [routerLinkActive]="['active']" *ngIf="usuario && !usuario.getId()").user
+            mat-icon account_circle
+        a(mat-button [mat-menu-trigger-for]="menuUser" *ngIf="usuario && usuario.getId()").user
+            mat-icon account_circle            
+
+
+mat-menu(#menu="matMenu")
+    a(mat-menu-item [routerLink]="navLinks[0].path" [routerLinkActive]="['active-nav']")
+        mat-icon work
+        span {{navLinks[0].label}}
+    a(mat-menu-item [routerLink]="navLinks[1].path" [routerLinkActive]="['active-nav']")
+        mat-icon work
+        span {{navLinks[1].label}}
+
+mat-menu(#menuUser="matMenu")
+    a(mat-menu-item [routerLink]="['/user']")
+        mat-icon account_box
+        span(*ngIf="usuario && !usuario.getNombre()") {{usuario.getCorreo()}}
+        span(*ngIf="usuario && usuario.getNombre()") {{usuario.getNombre()}}
+    a(mat-menu-item (click)="salir()")
+        mat-icon exit_to_app
+        span Cerrar Sesión

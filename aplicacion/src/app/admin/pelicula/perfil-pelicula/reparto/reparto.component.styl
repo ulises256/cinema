@@ -1,0 +1,64 @@
+
+.reparto
+    display flex
+    flex-direction columns 
+    width 100%
+    height 100%
+    .reparto-content
+        width 100%
+        height 100%
+        margin 5px 5px 5px 5px
+        .titulo
+            display flex
+            flex-direction row
+            justify-content center
+            align-items center
+            h1
+                flex 12
+            button 
+                flex 1
+        .actores
+            mat-grid-tile
+                cursor pointer
+
+
+mat-grid-list
+    mat-grid-tile
+        img
+            position relative
+            width 100%
+            height  auto
+        .add
+            left 0px
+        .remove
+            right 0px
+
+.green
+    background-color #008000
+
+.imge-add-remove
+    img
+        position relative
+        width 100%
+        height  auto
+    .add
+        left 0px
+    .remove
+        right 0px
+
+
+.image_wrapper .add, .image_wrapper .remove
+    position absolute
+    top 0px
+    opacity 0
+    transition opacity 0.2s linear
+    -webkit-transition opacity 0.2s linear
+    cursor pointer
+    border 0px
+    width 50px
+    height 50px
+
+.image_wrapper:hover .add, .image_wrapper:hover .remove
+    transition opacity 0.2s linear
+    -webkit-transition opacity 0.2s linear
+    opacity 0.8

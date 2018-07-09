@@ -1,0 +1,18 @@
+
+.produccion
+    .produccion-content
+        .titulo
+            h1 Imagenes de la producción
+        .images
+            .file
+                .dropi
+                    dropify([(ngModel)]="newimagen.imagen" (remove)="newimagen.setImagen($event)")
+                .botones
+                    button(mat-button matTooltip="Guardar" (click)="guardarImagen()" [ngStyle]="{'background-color':'green'}")
+                        mat-icon save
+            .grid
+                mat-grid-list(cols="4" rowHeight="1:1" gutterSize="25px")
+                    mat-grid-tile( class="image_wrapper" *ngFor="let image of produccion?.getImagenes()" )
+                        img(*ngIf="image" [src]="domSanitizer.bypassSecurityTrustUrl(image.getImagen())")
+                        button(mat-icon-button class="remove" color="warn" (click)="guardarImagen(image)" matTooltip="Eliminar Actor")
+                            mat-icon cancel

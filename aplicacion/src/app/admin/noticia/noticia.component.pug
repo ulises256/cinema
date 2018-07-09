@@ -1,0 +1,19 @@
+
+.noticia
+    .noticia-content
+        mat-card.busqueda
+            form.filtro
+                .autocomplete
+                    autocomplete([array]="noticias" [label]="'Buscar Noticia'" (selectItem)="ver($event.id)")
+                button.buscar(mat-button (click)="agregar()")
+                    mat-icon add_circle
+        mat-card.peliculas
+            mat-toolbar(color="primary").titulo
+                mat-toolbar-row Lista de Noticias
+            mat-list
+                mat-list-item( *ngFor="let noticia of noticias").proyecto
+                    h2((click)="ver(noticia.getId())") {{noticia.getTitulo()}}
+                    span.spaciador
+                    button.right(mat-button (click)="eliminar(noticia.getId())")
+                        mat-icon delete
+                    mat-divider

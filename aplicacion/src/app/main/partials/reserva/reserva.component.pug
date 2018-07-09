@@ -1,0 +1,19 @@
+form(class="form-dialog" [formGroup]="form" (ngSubmit)="submit(form)" novalidate)
+  mat-dialog-content
+    h1 Reserva ahora y te costará $1,000,000
+    .inputs-group
+        mat-form-field(class="input-layout entrada")
+            input(matInput formControlName="nombre" placeholder="Nombre"  required)
+        mat-form-field(class="input-layout entrada")
+            input(matInput formControlName="apellidos" placeholder="Apellidos"  required)
+        mat-form-field(class="input-layout entrada")
+            input(matInput formControlName="telefono" placeholder="Telefono"  required)
+        mat-form-field(class="input-layout entrada")
+            input(matInput formControlName="correo" placeholder="Correo"  required)
+        mat-form-field(class="input-layout entrada")
+            input(matInput formControlName="integrantes" placeholder="Cantidad de Integrantes"  required)
+  mat-dialog-actions
+    button(mat-raised-button color="warn" type="button" (click)="cancel()") Me arrepentí
+      mat-icon cancel
+    button(mat-raised-button color="primary" type="submit") Ok
+      mat-icon done
