@@ -1,7 +1,17 @@
 .home
     .home-content
-        section.estrenos
-            p estrenos
+        section.estrenos([style.backgroundImage]="'url('+ img +')'")
+            .estrenos-content
+                h2 Estreno
+                .titulo
+                    .title
+                        h1 LA LEYENDA
+                        p de la condesa de malibrán
+                    .button
+                        a(mat-raised-button color="primary").verpeli Ver pelicula
+
+                .pie
+                    p puntitos
         section.cartelera
             p cartelra
         section.noticias
