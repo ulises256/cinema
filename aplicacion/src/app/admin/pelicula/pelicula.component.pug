@@ -8,7 +8,7 @@
                     mat-icon add_circle
         mat-card.peliculas
             mat-toolbar(color="primary").titulo
-                mat-toolbar-row Lista de proyectos
+                mat-toolbar-row Lista de Películas
             mat-list
                 mat-list-item( *ngFor="let pelicula of peliculas").proyecto
                     h2((click)="verPelicula(pelicula.getId())") {{pelicula.nombre}}

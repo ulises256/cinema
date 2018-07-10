@@ -1,33 +1,43 @@
 .login
-	mat-card.contenedor
-		mat-tab-group
-			mat-tab(label="Inicia sesión")
-				form([formGroup]="loginForm" (ngSubmit)="login(loginForm)" novalidate).formulario
-					.contenido
-						mat-form-field(class="input-layout")
-							input(matInput formControlName="usuario" placeholder="Usuario" autocomplete="off" required)
-						mat-form-field(class="input-layout")
-							input(matInput type="password" formControlName="contra" autocomplete="off" placeholder="Contraseña" required)
-						
-					.botones
-						button(mat-raised-button type="submit" matTooltip="Iniciar Sesión" color="primary")
-							mat-icon send
-					mat-error(*ngIf="inicioIncorecto") Usuario o contraseña incorrecto
-			mat-tab(label="Registrate")
-				form([formGroup]="registerForm" (ngSubmit)="registro(registerForm)" novalidate).formulario
-					.contenido
-						mat-form-field(class="input-layout")
-							input(matInput formControlName="correo" placeholder="Usuario" autocomplete="off" required)
-						mat-form-field(class="input-layout")
-							input(matInput type="password" formControlName="contrasena" autocomplete="off" placeholder="Escribre una contraseña" required)
-						mat-form-field(class="input-layout")
-							input(matInput type="password" formControlName="repeatContra" autocomplete="off" placeholder="Repite la contraseña" required)
-					.botones
-						button(mat-raised-button type="submit" matTooltip="Registrate" color="primary")
-							mat-icon done
-					mat-error(*ngIf="registerForm.controls.contrasena.value != registerForm.controls.repeatContra.value") Confirme bien su contraseña
-					mat-error(*ngIf="registroIncorecto") Usuario existente
-		.social-botones
-			a(mat-button href="/login/facebook").fb
-				span Iniciar Sesion con
-				img(src="assets/images/F_icon.svg")
+	.titulo
+		h1 Bienvenido
+		.fantasma
+	.formulas
+		.fantasma
+		.form
+			mat-tab-group(color="primary")
+				mat-tab(label="Inicia sesión" color="primary")
+					form([formGroup]="loginForm" (ngSubmit)="login(loginForm)" novalidate).formulario
+						.contenido
+							label(for="field1") Dirección de Correo Electronico
+							input(type="text" class="field1" id="field1" formControlName="usuario" name="correo" autocomplete="off" required).input-layout
+							label(for="field2") Contraseña
+							input(class="field2" id="field2" type="password" formControlName="contra" name="contra" autocomplete="off" required).input-layout
+						mat-error(*ngIf="inicioIncorecto") Usuario o contraseña incorrecto
+						.social-botones
+							.botones
+								button(mat-raised-button type="submit" color="primary")
+									span Iniciar Sesión
+									mat-icon send								
+							a(mat-button href="/login/facebook").fb
+								span Iniciar Sesión con facebook
+								img(src="assets/images/facebook-32.png")
+				mat-tab(label="Registrate" color="primary")
+					form([formGroup]="registerForm" (ngSubmit)="registro(registerForm)" novalidate).formulario
+						.contenido
+							label(for="field1") Dirección de Correo Electronico
+							input(matInput id="field1" type="text" formControlName="correo" autocomplete="off" required)
+							label(for="field2") Escribe una contraseña
+							input(matInput id="field2" type="password" formControlName="contrasena" autocomplete="off" required)
+							label(for="field3") Confirme su contraseña
+							input(matInput id="field3" type="password" formControlName="repeatContra" autocomplete="off" required)
+						mat-error(*ngIf="registerForm.controls.contrasena.value != registerForm.controls.repeatContra.value") Confirme bien su contraseña
+						mat-error(*ngIf="registroIncorecto") Usuario existente
+						.social-botones
+							.botones
+								button(mat-raised-button type="submit" color="primary")
+									span Registrate
+									mat-icon done									
+							a(mat-button href="/login/facebook").fb
+								span Iniciar Sesión con facebook
+								img(src="assets/images/facebook-32.png")

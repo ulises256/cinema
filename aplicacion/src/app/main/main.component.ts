@@ -62,9 +62,9 @@ export class MainComponent implements OnInit, AfterViewInit, OnDestroy {
 		this._mobileQueryListener = () => changeDetectorRef.detectChanges();
 		this.mobileQuery.addListener(this._mobileQueryListener);
 		this.navLinks = [
-			{ path: '/proyectos', label: 'Proyectos', icon: 'airplanemode_active' },
 			{ path: '/nosotros', label: 'Nosotros', icon: 'airplanemode_active' },
-			{ path: '/login', label: 'Login', icon: 'airplanemode_active' },
+			{ path: '/noticias', label: 'Noticias', icon: 'airplanemode_active' },
+			{ path: '/login', label: 'Iniciar Sesión', icon: 'airplanemode_active' },
 		];
 	}
 

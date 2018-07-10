@@ -13,37 +13,46 @@ main
     width 100%
     height 100vh
     display grid
-    grid-gap 10px
     grid-template-columns 100% //indica que es de una columna de 100% de anccho
-    grid-template-rows 1fr 10fr 1fr //indica qie son 3 filas
+    grid-template-rows 0.5fr 10fr 0.5fr //indica qie son 3 filas
     header
         width 100%
         z-index 10
+        height 64px
         #menu
             margin 0px !important
-            transition all 0.5s ease 
+            transition all 0.5s ease
             mat-toolbar-row
                 display flex
                 flex-direction row
                 justify-content space-around
+                align-content center
+                background-color black
                 img
-                    height 50px
+                    width 100%
+                    height 100%
+                .home-button
+                    flex 2
+                    a
+                        width 100%
                 .busqueda
                     width 100%
-                    form
-                        width 100% !important
-                        height 60px !important
-                        background-color white !important
-                        border-radius 40px !important
-                        display flex
-                        justify-content: center
-                        align-items: center
-                        autocomplete
-                            height 40px !important
-                            width 98% !important
-                            margin 0px 10px 20px 0px
+                    flex 7
                 .botones
+                    display flex
+                    flex-direction row
+                    flex 5
                     color white !important
+                    justify-content center
+                    align-content center
+                    a
+                        display flex
+                        justify-content center
+                        align-items center
+                    .active
+                        flex 1
+                    .univseridad
+                        flex 2
         #menu-movil
             margin 0px !important
             transition all 0.5s ease 
@@ -58,24 +67,32 @@ main
         height 100%
     .footer
         display flex
-        background-color gray
+        background-color black
         width 100%
-        height 100%
         z-index 2
-        .redes-sociales
+        .derechos, .drechos2, .iconos-sociales
             display flex
-            flex-direction column
-            flex 1
-            .iconos-sociales
-                display flex
-                flex-direction row
-                margin 10px 10px 10px 10px
-        .starbrand
-            flex 1
-            display flex
-            color white
             flex-direction row
-            justify-content flex-end
-            img 
-                width 100%
-                height 100%
+            justify-content center
+            align-content center            
+        .derechos
+            flex 3
+            color white
+        .drechos2
+            color white
+            flex 3
+        .separator
+            flex 7
+        .iconos-sociales
+            flex 3
+            .facebook, .instagram, .twitter
+                width 80%
+            .facebook
+                color white
+            a
+                display flex
+                justify-content center
+                align-items center
+            img
+                width 24px
+                height 24px

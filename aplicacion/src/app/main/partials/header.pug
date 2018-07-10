@@ -1,16 +1,17 @@
-mat-toolbar(id="menu" color="primary" class="mat-elevation-z8" role="header" *ngIf="!mobileQuery.matches")
+mat-toolbar(id="menu" *ngIf="!mobileQuery.matches")
     mat-toolbar-row
-        a(mat-button  [routerLink]="['/']" [routerLinkActive]="['active']").active
-          img(src="favicon.ico")
+        .home-button
+            a(mat-button  [routerLink]="['/']" [routerLinkActive]="['active']").active
+                img(src="assets/images/cineclub.png")
         .busqueda
-            form
-                autocomplete([array]="proyectos" [label]="'Buscar proyecto'" (selectItem)="verProyecto($event.id)")
         .botones
             a(mat-button [routerLink]="navLinks[0].path" [routerLinkActive]="['active']").active {{navLinks[0].label}}
             a(mat-button [routerLink]="navLinks[1].path" [routerLinkActive]="['active']").active {{navLinks[1].label}}
             a(mat-button [routerLink]="navLinks[2].path"  [routerLinkActive]="['active']" *ngIf="!(usuario && usuario.getId())").active {{navLinks[2].label}}
             a(mat-button  *ngIf="usuario && usuario.getId()" [mat-menu-trigger-for]="menuUser").active
                 mat-icon account_circle
+            a(mat-button class="univseridad" href="http://www.uninaciones.com/")
+                img(src="assets/images/uninaciones.png")
 
 mat-toolbar(id="menu-movil" color="primary" class="mat-elevation-z8" role="header" *ngIf="mobileQuery.matches")
     mat-toolbar-row

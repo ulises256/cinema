@@ -4,13 +4,15 @@ main
     .contenido([@routerTransition]="getState(o)")
         router-outlet(#o="outlet")
     .footer(color="primary")
-        .starbrand
-            .redes-sociales
-                p Siguenos en:
-                .iconos-sociales
-                    a(href="https://es-la.facebook.com/CadaNinoUnaSonrisa/")
-                        img(src="assets/images/facebook-32.png" alt="facebook-logo"  href="https://es-la.facebook.com/CadaNinoUnaSonrisa/")
-            .starbrand
-                p Desarrollado por
-                a(href="https://www.starbrand.mx")
-                    img(src="assets/images/starbrand.svg" alt="Starbrand-logo"  href="https://www.starbrand.mx")
+        .derechos
+            p 2018 Universidad de las Naciones
+        .drechos2
+            p Todos los derechos reservados
+        .separator
+        .iconos-sociales
+            a(mat-button class="univseridad" href="https://www.facebook.com/UniNaciones/").facebook
+                img(src="assets/images/facebook-32.png")
+            a(mat-button class="univseridad" href="https://www.instagram.com/uninacionesmx/").instagram
+                img(src="assets/images/instagram-gray.svg")
+            a(mat-button class="univseridad" href="https://twitter.com/uninaciones?lang=es").twitter
+                img(src="assets/images/twitter_logo.svg")
