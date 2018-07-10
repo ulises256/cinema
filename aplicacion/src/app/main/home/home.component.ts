@@ -1,34 +1,37 @@
 import { Component, OnInit } from '@angular/core';
-import {TweenLite} from "gsap";
+import { TweenLite } from "gsap";
 import * as $ from 'jquery';
 import { Router } from '@angular/router';
+import { PeliculaService, NoticiaService } from '../../services';
+import { Pelicula, Noticia } from '../../models';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.pug',
-  styleUrls: ['./home.component.styl']
+	selector: 'app-home',
+	templateUrl: './home.component.pug',
+	styleUrls: ['./home.component.styl']
 })
 export class HomeComponent implements OnInit {
-  
-  anecdotas = [
-    {
-    contenido: 'Este es un contenido',
-    usuario: {nombre: 'malaga', foto: 'https://www.dondeir.com/wp-content/uploads/2018/04/expo-vive-gatito-2018-en-cdmx-1024x767.jpg'},
-    Proyecto: {id:2, nombre: 'Cada niño una sonrisa'}},
-    {
-      contenido: 'Este es un contenidoooooooooooooooooooooo',
-      usuario: {nombre: 'malaga', foto: 'https://www.dondeir.com/wp-content/uploads/2018/04/expo-vive-gatito-2018-en-cdmx-1024x767.jpg'},
-      Proyecto: {id:2, nombre: 'Cada niño una sonrisa'}
-    },
-  ]
-  constructor(private router: Router) { }
 
-  ngOnInit() {
-    // let photo = document.getElementsByClassName("nosotros");
-    // TweenLite.to(photo, 2, {width:"200px", height:"550px"});
-  }
+	peliculas: Pelicula[];
+	noticias: Noticia[];
+	
+	constructor(private router: Router) { }
 
-  verProyecto(idProyecto) {
+	async ngOnInit() {
+		// let photo = document.getElementsByClassName("nosotros");
+		// TweenLite.to(photo, 2, {width:"200px", height:"550px"});
+
+		await PeliculaService.obtenerPeliculas()
+		.then(response => response && response.data ? this.peliculas = response.data.map(n => new Pelicula(n.id, n.nombre, n.historia, n.video)): []);
+
+		await NoticiaService.obtenerNoticias()
+		.then(response => response && response.data ?  this.noticias = response.data.map(n => new Noticia(n.id, n.titutlo, n.descripcion, n.status)): []);
+
+		await console.log(this.peliculas)
+		await console.log(this.noticias)
+	}
+
+	verProyecto(idProyecto) {
 		this.router.navigate(['proyectos/' + idProyecto]);
 	}
 }

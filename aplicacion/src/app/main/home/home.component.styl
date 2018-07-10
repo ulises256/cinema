@@ -6,29 +6,15 @@ mobile-1250 = '@media only screen and (max-width: 1250px)'
     height 100%
     justify-content center
     align-items center
+    background-color black
     .home-content
-        display grid
-        grid-gap 10px
-        grid-template-areas: "nosotros comentarios facebook-button"
-        width 90%
+        display flex
+        flex-direction column
+        width 100%
         height 100%
         section
             height 100%
             width 100%
             flex 1
-            &.nosotros, .comentarios
+            &.estrenos
                 width 100%
-                height 100%
-                .mat-list
-                    width 80%
-            &.nosotros
-                grid-area nosotros
-            &.comentarios
-                grid-area comentarios
-            &.facebook-button
-                grid-area facebook-button
-                width 100%
-                height 100%
-                display flex
-                justify-content center
-                align-items center

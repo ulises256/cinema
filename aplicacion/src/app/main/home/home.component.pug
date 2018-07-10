@@ -1,15 +1,8 @@
 .home
     .home-content
-        section.nosotros
-            mat-card
-                p somos una asociacion civil que hace esto y el esto otro
-        section.comentarios
-            mat-list
-                mat-card(*ngFor="let anecdota of anecdotas")
-                    mat-list-item
-                        img([src]="anecdota.usuario.foto" mat-list-icon)
-                        h4(mat-line) {{anecdota.usuario.nombre}}
-                        h5(mat-line) {{anecdota.contenido}}
-                        button(mat-button color="primary" mat-line (click)="verProyecto(anecdota.Proyecto.id)") {{anecdota.Proyecto.nombre}}
-        section.facebook-button
-            button nombre
+        section.estrenos
+            p estrenos
+        section.cartelera
+            p cartelra
+        section.noticias
+            p noticias
