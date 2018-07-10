@@ -15,6 +15,10 @@ import { ReservaComponent } from './partials/reserva/reserva.component';
 import { ExtrasModule } from '../extras.module';
 import { LoginComponent } from './login/login.component';
 import { UsuarioComponent } from './usuario/usuario.component';
+import { PeliculasMainComponent, HomePeliculaComponent, HistoriaComponent, GaleriaComponent, RepartoComponent, VerVideoComponent } from './peliculas-main'
+import { NoticiasComponent } from './noticias/noticias.component';
+import { NosotrosComponent } from './nosotros/nosotros.component';
+
 
 @NgModule({
 	imports: [
@@ -37,7 +41,15 @@ import { UsuarioComponent } from './usuario/usuario.component';
 		ImagenComponent,
 		ReservaComponent,
 		LoginComponent,
-		UsuarioComponent
+		UsuarioComponent,
+		NoticiasComponent,
+		NosotrosComponent,
+		PeliculasMainComponent,
+		HomePeliculaComponent,
+		HistoriaComponent,
+		GaleriaComponent,
+		RepartoComponent,
+		VerVideoComponent
 	],
 	entryComponents: [
 		LoginComponent

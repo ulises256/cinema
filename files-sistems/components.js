@@ -1,7 +1,14 @@
 var fs = require("fs");
 
 var componentes = [
-    {   nombre : 'EditarNoticia',    minuscula : 'editar-noticia'},
+    {   nombre : 'Noticias',    minuscula : 'noticias'},
+    {   nombre : 'Nosotros',    minuscula : 'nosotros'},
+    {   nombre : 'PeliculasMain',    minuscula : 'peliculas-main'},
+    {   nombre : 'HomePelicula',    minuscula : 'home-pelicula'},
+    {   nombre : 'VerVideo',    minuscula : 'ver-video'},
+    {   nombre : 'Historia',    minuscula : 'historia'},
+    {   nombre : 'Galeria',    minuscula : 'galeria'},
+    {   nombre : 'Reparto',    minuscula : 'reparto'},
 ]
 
 fs.mkdirSync('componentes')
@@ -13,17 +20,16 @@ fs.createWriteStream("componentes/" + componente.minuscula + "/" + componente.mi
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-`+componente.minuscula+`',
-  templateUrl: './`+componente.minuscula+`.component.pug',
-  styleUrls: ['./`+componente.minuscula+`.component.styl']
+    selector: 'app-`+componente.minuscula+`',
+    templateUrl: './`+componente.minuscula+`.component.pug',
+    styleUrls: ['./`+componente.minuscula+`.component.styl']
 })
 export class `+componente.nombre+`Component implements OnInit {
+    
+    constructor() { }
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+    ngOnInit() {
+    }
 }
 `)
 
@@ -32,7 +38,7 @@ fs.createWriteStream("componentes/" + componente.minuscula + "/" + componente.mi
 .`+componente.minuscula+`
     .`+componente.minuscula+`-content
         mat-card.titulo
-            h1 Inserte Titulo
+            h1 `+componente.nombre+` Component Works
 `)
 
 fs.createWriteStream("componentes/" + componente.minuscula + "/" + componente.minuscula + '.component.styl')

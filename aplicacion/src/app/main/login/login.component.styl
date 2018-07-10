@@ -2,22 +2,23 @@
 //     width: 100%;
 //     flex: 1 1 auto;
 mobile = '@media only screen and (max-width: 1250px)'
+
 funcion1()
-    -webkit-transition: all 0.30s ease-in-out;
-    -moz-transition: all 0.30s ease-in-out;
-    -ms-transition: all 0.30s ease-in-out;
-    -o-transition: all 0.30s ease-in-out;
-    outline: none;
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    width: 100%;
-    background: #fff;
-    margin-bottom: 4%;
-    border: 1px solid #ccc;
-    padding: 3%;
-    color: #555;
-    font: 95% Arial, Helvetica, sans-serif;
+    -webkit-transition all 0.30s ease-in-out
+    -moz-transition all 0.30s ease-in-out
+    -ms-transition all 0.30s ease-in-out
+    -o-transition all 0.30s ease-in-out
+    outline none
+    box-sizing border-box
+    -webkit-box-sizing: border-box
+    -moz-box-sizing border-box
+    width 100%
+    background #fff
+    margin-bottom 2%
+    border 1px solid #ccc
+    padding 2%
+    color #555
+    font 20px Arial, Helvetica, sans-serif
 
 funcion2()
     box-shadow 0 0 5px #78909C
@@ -52,8 +53,10 @@ funcion2()
         .fantasma
             @media only screen and (max-width: 1250px)
                 flex 0.5
-            flex 1
+            @media only screen and (max-width: 1104px)
+                display none
             margin 20px 20px 20px 20px
+            flex 0.5
         .form
             flex 1
             margin 20px 20px 20px 20px
@@ -65,7 +68,7 @@ funcion2()
             display flex
             flex-direction column
             justify-content center
-            font: 95% Arial, Helvetica, sans-serif;
+            font 20px Arial, Helvetica, sans-serif
             max-width 100%
             margin 10px auto
             padding 16px

@@ -1,0 +1,6 @@
+export * from './peliculas-main.component'
+export * from './home-pelicula/home-pelicula.component'
+export * from './galeria/galeria.component'
+export * from './historia/historia.component'
+export * from './reparto/reparto.component'
+export * from './ver-video/ver-video.component'

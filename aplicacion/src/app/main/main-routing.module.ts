@@ -10,6 +10,9 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from '../guards/auth.guard';
 import { AuthService } from '../services/auth.service';
 import { UsuarioComponent } from './usuario/usuario.component';
+import { NoticiasComponent } from './noticias/noticias.component';
+import { NosotrosComponent } from './nosotros/nosotros.component';
+import { PeliculasMainComponent } from './peliculas-main';
 
 const main_routers: Routes = [
   {
@@ -23,6 +26,19 @@ const main_routers: Routes = [
       {
         path: 'login',
         component: LoginComponent
+      },
+      {
+        path: 'noticias',
+        component: NoticiasComponent
+      },
+      {
+        path: 'nosotros',
+        component: NosotrosComponent
+      },
+      {
+        path: 'pelicula/:id',
+        component: PeliculasMainComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'user',
