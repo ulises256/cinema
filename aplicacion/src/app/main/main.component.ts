@@ -1,7 +1,6 @@
 import { Component, OnInit, ElementRef, AfterViewInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { Router, NavigationStart, NavigationCancel, NavigationEnd } from '@angular/router';
 import { MediaMatcher } from '@angular/cdk/layout';
-import { ProyectosService } from '../services/proyectos.service';
 import { MatDialog } from '@angular/material';
 import { transition, trigger, query, style, animate, group } from '@angular/animations';
 import { Usuario } from '../models/usuario.model';
@@ -96,7 +95,6 @@ export class MainComponent implements OnInit, AfterViewInit, OnDestroy {
 	}
 	ngOnInit() {
 		this.subscription = this.us.obtenerUsuario().subscribe(user => this.usuario = user);
-
 	}
 	verProyecto(idProyecto) {
 		this.router.navigate(['proyectos/' + idProyecto]);

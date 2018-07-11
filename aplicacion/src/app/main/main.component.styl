@@ -25,35 +25,46 @@ main
             transition all 0.5s ease
             mat-toolbar-row
                 display flex
+                position relative
                 flex-direction row
                 justify-content space-around
                 align-content center
                 background-color black
-                img
-                    width 100%
-                    height 100%
                 .home-button
                     flex 2
                     a
-                        width 100%
+                        height 64px
+                        img
+                            width 100%
+                            height 100%
                 .busqueda
-                    width 100%
                     flex 7
                 .botones
                     display flex
                     flex-direction row
                     flex 5
                     color white !important
-                    justify-content center
+                    justify-content flex-end
                     align-content center
                     a
                         display flex
                         justify-content center
                         align-items center
-                    .active
-                        flex 1
-                    .univseridad
-                        flex 2
+                        height 64px
+                    .universidad
+                        height 64px
+                        img
+                            width 172px
+                            height 64px
+                #menu-line
+                    display block
+                    position absolute
+                    left 50%
+                    top 25px
+                    width 0
+                    height 5px
+                    background-color white
+
         #menu-movil
             margin 0px !important
             transition all 0.5s ease 

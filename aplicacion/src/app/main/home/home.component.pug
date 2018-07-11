@@ -5,14 +5,21 @@
                 h2 Estreno
                 .titulo
                     .title
+                        div(class="line-white" id="lineLeft")
                         h1 LA LEYENDA
-                        p de la condesa de malibrán
+                        p de la condesa de Malibrán
+                        div(class="line-white" id="lineRight")
                     .button
-                        a(mat-raised-button color="primary").verpeli Ver pelicula
-
-                .pie
-                    p puntitos
+                        a(mat-raised-button (click)="verProyecto()").verpeli Ver pelicula
         section.cartelera
-            p cartelra
+            .cartelera-content
+                h2 Cartelera
+                mat-grid-list(cols="3" rowHeight="1:1" gutterSize="10px")
+                    mat-grid-tile
+                        img([src]="img")
+                    mat-grid-tile
+                        img([src]="img")                        
+                    mat-grid-tile
+                        img([src]="img")                        
         section.noticias
             p noticias
