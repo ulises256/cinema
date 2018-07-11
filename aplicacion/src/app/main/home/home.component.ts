@@ -42,6 +42,6 @@ export class HomeComponent implements OnInit {
 		await console.log(this.noticias)
 	}
 
-	verProyecto(idProyecto) {
+	verProyecto() {
 	}
 }
