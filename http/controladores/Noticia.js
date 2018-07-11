@@ -19,3 +19,30 @@ ex.read =  (req, res, next) => req.params.id ?
     :
     noticia.findAll()
     .then(response => res.status(200).jsonp(response));
+ex.noticiasPublicas = (req, res, next) => noticia.findOne(
+    {
+        where: {
+            status: "publico"
+        },
+        order:[
+            ['createdAt', 'DESC'],
+        ],
+    }
+)
+.then(result=> res.status(200).jsonp(result))
+
+
+ex.ultimaNoticia = (req, res, next) => noticia.findOne(
+        {
+            where: {
+                createdAt: {
+                    $lte: req.body.fechaActual
+                },
+                status: "publico"
+            },
+            order:[
+                ['createdAt', 'DESC'],
+            ],
+        }
+    )
+    .then(result=> res.status(200).jsonp(result))

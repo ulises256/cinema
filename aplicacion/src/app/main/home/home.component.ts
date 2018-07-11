@@ -1,31 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { TimelineLite, TweenMax } from "gsap";
 import * as $ from 'jquery';
 import { Router } from '@angular/router';
 import { PeliculaService, NoticiaService } from '../../services';
 import { Pelicula, Noticia } from '../../models';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
 	selector: 'app-home',
 	templateUrl: './home.component.pug',
-	styleUrls: ['./home.component.styl']
+	styleUrls: ['./home.component.styl'],
+	encapsulation: ViewEncapsulation.None
 })
 export class HomeComponent implements OnInit {
 
 	peliculas: Pelicula[];
-	noticias: Noticia[];
+	noticias: Noticia;
+	
+	paginacion = {
+		pagina: 0,
+		items: 3,
+		totalPaginas: undefined
+	}
 
 	img = "assets/images/backgound1.png"
-	
-	constructor(private router: Router) { }
+	constructor(private router: Router, private domSanitizer: DomSanitizer) { }
 
 	async ngOnInit() {
 
-		await PeliculaService.obtenerPeliculas()
-		.then(response => response && response.data ? this.peliculas = response.data.map(n => new Pelicula(n.id, n.nombre, n.historia, n.video)): []);
+		await this.paginar();
 
-		await NoticiaService.obtenerNoticias()
-		.then(response => response && response.data ?  this.noticias = response.data.map(n => new Noticia(n.id, n.titutlo, n.descripcion, n.status)): []);
+		await NoticiaService.ultimaNoticia()
+		.then(response => response && response.data ? this.noticias = new Noticia(response.data.id, response.data.titulo, response.data.descripcion, response.data.status, response.data.createdAt): null)
 
 		let tl = new TimelineLite({delay:0.5})
 		TweenMax.set('#lineLeft', {marginTop:50, marginLeft:3});
@@ -42,6 +48,33 @@ export class HomeComponent implements OnInit {
 		await console.log(this.noticias)
 	}
 
-	verProyecto() {
+	verProyecto(idPelicula) {
+		this.router.navigate(['pelicula/' + idPelicula])
 	}
+
+	anterior() {
+		console.log(this.paginacion)
+		this.paginacion.pagina==0? null : (this.paginacion.pagina--, this.paginar()) ;
+	}
+
+	siguiente() {
+		this.paginacion.pagina == (this.paginacion.totalPaginas - 1) ? null : (this.paginacion.pagina++, this.paginar());
+	}
+
+	paginar() {
+		PeliculaService.paginacion(this.paginacion.items, this.paginacion.pagina)
+		.then(response => {
+			if(response && response.data && response.data.items){
+				this.paginacion.totalPaginas = response.data.totalPaginas;
+				return response.data.items.map(n => new Pelicula(n.id, n.nombre, n.historia, n.video, ''))
+			}
+		})
+		.then(pelis => pelis ? this.peliculas = pelis : null)
+	}
+
+	makeTrustedImage(item) {
+		const imageString =  JSON.stringify(item).replace(/\\n/g, '');
+		const style = 'url(' + imageString + ')';
+		return this.domSanitizer.bypassSecurityTrustStyle(style);
+	  }
 }

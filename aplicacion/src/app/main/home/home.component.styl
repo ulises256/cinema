@@ -14,7 +14,6 @@ mobile-1250 = '@media only screen and (max-width: 1250px)'
         height 100%
         section
             width 100%
-            flex 1
             &.estrenos
                 color white
                 height 600px
@@ -45,8 +44,9 @@ mobile-1250 = '@media only screen and (max-width: 1250px)'
                                 background-color white
                                 width 250px
                                 height 1px
+                                opacity 0.5
                         .button
-                            width 12%
+                            width 15%
                             height 10%
                             .mat-raised-button
                                 width 100%
@@ -58,28 +58,56 @@ mobile-1250 = '@media only screen and (max-width: 1250px)'
                                 font-size 24px
                                 background-color black
                                 line-height 46px
-                    .pie
-                        display flex
-                        justify-content flex-end
             &.cartelera
                 display flex
                 color white
                 background-color #212121
-                height 100%
+                height 400px
+                width 100%
+                justify-content center
+                align-items center
                 .cartelera-content
                     display flex
                     flex-direction column
                     position relative
                     height 100%
-                    width 100%
+                    width 80%
                     margin 10px 50px 10px 50px
                     h2
                         font-size 34px
-                    mat-grid-list
+                    .pelis
+                        display flex
+                        flex-direction row
+                        justify-content center
+                        align-items center
                         width 100%
-                        mat-grid-tile
+                        button
+                            margin 10px 10px 10px 10px
+                        mat-grid-list
                             width 100%
-                            height 100%
-                            img 
-                                width 200px
-                                height 200px
+                            .mat-grid-tile
+                                background-position center
+                                background-repeat no-repeat
+                                background-size cover
+                                cursor pointer
+            &.noticias
+                display flex
+                background-color white
+                justify-content center
+                align-items center
+                height 400px
+                width 100%
+                .noticias-content
+                    display flex
+                    flex-direction column
+                    width 80%
+                    height 100%
+                    h2
+                        font-size 34px
+                    img
+                        width 20%
+                        height 100%
+                    .noticia
+                        max-width 100%
+                        width 100%
+                        height 100%

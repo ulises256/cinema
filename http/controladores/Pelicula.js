@@ -5,6 +5,7 @@ const { promisify } = require('util')
 const unlinkAsync = promisify(fs.unlink)
 var multer = require('multer');
 const path = require('path');
+var _ = require('lodash');
 const uploadDir = path.join(__dirname, '/..', '/..', '/aplicacion/dist/assets/videos/');
 // const uploadDir = path.join(__dirname, '/..', '/..', '/aplicacion/src/assets/videos/');
 
@@ -90,4 +91,24 @@ ex.reparto = (req, res, next) => pelicula.findById(req.params.idPeli)
 
 ex.produccion = (req, res, next) => pelicula.findById(req.params.idPeli)
     .then(peli =>peli? peli.getProduccion() : null)
-    .then(response => res.status(200).jsonp(response))
+    .then(response => res.status(200).jsonp(response));
+
+ex.paginacion = function(req, res, next) {
+
+    pelicula.findAndCountAll(
+            {
+                order:[
+                    ['createdAt', 'DESC'],
+                ],
+            })
+        .then(result=> {
+            let response =  new Object(
+                                {
+                                    pagina:Math.round(result.count/req.params.Items),
+                                    items: _.chunk(result.rows, req.params.Items)[req.params.Pagina],
+                                    totalPaginas: _.chunk(result.rows, req.params.Items).length
+                                });
+            res.status(200).jsonp(response);
+        })
+
+};

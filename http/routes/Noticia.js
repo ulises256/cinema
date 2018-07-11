@@ -10,5 +10,9 @@ route.route('/data/noticia/:id')
         .put(x.update)
         .delete(x.delete);
 
+route.route('/data/noticia/front')
+        .get(x.noticiasPublicas)
+        .post(x.ultimaNoticia);
+
 module.exports = route;
 

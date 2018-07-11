@@ -27,5 +27,14 @@ export class NoticiaService {
     public static eleiminarNoticia(idNoticia) {
         return axios.default.delete(this.apiUrl + '/data/noticia/' + idNoticia);
     }
+
+    public static noticiasPublicas() {
+        return axios.default.get(this.apiUrl + '/data/noticia/front')
+    }
+
+    public static ultimaNoticia() {
+        let date = {fechaActual :new Date()}
+        return axios.default.post(this.apiUrl + '/data/noticia/front', date)
+    }
 }
     

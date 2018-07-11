@@ -10,16 +10,23 @@
                         p de la condesa de Malibrán
                         div(class="line-white" id="lineRight")
                     .button
-                        a(mat-raised-button (click)="verProyecto()").verpeli Ver pelicula
+                        a(mat-raised-button (click)="verProyecto(1)").verpeli Ver pelicula
         section.cartelera
             .cartelera-content
                 h2 Cartelera
-                mat-grid-list(cols="3" rowHeight="1:1" gutterSize="10px")
-                    mat-grid-tile
-                        img([src]="img")
-                    mat-grid-tile
-                        img([src]="img")                        
-                    mat-grid-tile
-                        img([src]="img")                        
+                .pelis
+                    button(mat-icon-button (click)="anterior()")
+                        mat-icon keyboard_arrow_left
+                    mat-grid-list(cols="3" rowHeight="200px" gutterSize="10px" ) 
+                        mat-grid-tile(*ngFor="let peli of peliculas" [style.backgroundImage]="peli.getPortadas() ? makeTrustedImage(peli.getPortadas()[0].imagen) : null" (click)="verProyecto(peli.getId())")
+                            mat-grid-tile-footer
+                                p {{peli.getNombre()}}
+                    button(mat-icon-button (click)="siguiente()")                      
+                        mat-icon keyboard_arrow_right
         section.noticias
-            p noticias
+            .noticias-content
+                h2 Ultima noticia
+                .titutlo(*ngIf="noticias")
+                    p {{noticias.fecha | date}}
+                    h3 {{noticias?.titulo}}
+                .noticia(*ngIf="noticias" [innerHTML]="noticias.descripcion | safeHtml")

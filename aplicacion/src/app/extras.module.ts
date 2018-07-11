@@ -10,6 +10,8 @@ import { DropifyComponent } from './dropify/dropify.component';
 import { FiltroNombreProyecto } from './pipes/filtroNombreProyecto.pipe';
 import {FileUploadComponent} from './file-upload/file-upload.component'
 import { VideoJSComponent } from './admin/videojs/videojs.component';
+import { SafeHtmlPipe } from './pipes/safe-html.pipe';
+import { SafeImagePipe } from './pipes/safe-image.pipe';
 
 @NgModule({
     imports: [
@@ -22,6 +24,8 @@ import { VideoJSComponent } from './admin/videojs/videojs.component';
         MaterialModule
     ],
     declarations: [
+        SafeHtmlPipe,
+        SafeImagePipe,
         AutocompleteComponent,
         DropifyComponent,
         FiltroNombreProyecto,
@@ -33,7 +37,8 @@ import { VideoJSComponent } from './admin/videojs/videojs.component';
         DropifyComponent,
         FiltroNombreProyecto,
         FileUploadComponent,
-        VideoJSComponent
+        VideoJSComponent,
+        SafeHtmlPipe
     ]
   })
 

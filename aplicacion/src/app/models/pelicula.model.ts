@@ -11,17 +11,20 @@ export class Pelicula {
     private reparto: Reparto;
     private pruduccion: Produccion;
     private portadas: Imagen[];
-    constructor(id: number, nombre: string, historia: string, video: string) {
+    constructor(id: number, nombre: string, historia: string, video: string, bandera?) {
         this.id = id;
         this.nombre = nombre;
         this.historia = historia;
         this.videoId = video;
 
-        PeliculaService.obtenerReparto(this.id)
-        .then(response => response && response.data? this.reparto = new Reparto(response.data.id, response.data.nombre, response.data.id_pelicula) : null)
+        bandera == undefined ?
+            (
+                PeliculaService.obtenerReparto(this.id)
+                .then(response => response && response.data? this.reparto = new Reparto(response.data.id, response.data.nombre, response.data.id_pelicula) : null),
 
-        ProduccionService.obtenerProduccion(this.id)
-        .then(response => response && response.data? this.pruduccion = new Produccion(response.data.id, response.data.nombre, response.data.id_pelicula) : null)
+                ProduccionService.obtenerProduccion(this.id)
+                .then(response => response && response.data? this.pruduccion = new Produccion(response.data.id, response.data.nombre, response.data.id_pelicula) : null)
+            ):null;
 
         PeliculaService.obtenerPortadas(this.id)
         .then(response => response && response.data? this.portadas = response.data.map(n => new Imagen(n.id, n.imagen)): [])

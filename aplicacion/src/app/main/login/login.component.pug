@@ -5,8 +5,8 @@
 	.formulas
 		.fantasma
 		.form
-			mat-tab-group(color="primary")
-				mat-tab(label="Inicia sesión" color="primary")
+			mat-tab-group
+				mat-tab(label="Inicia sesión")
 					form([formGroup]="loginForm" (ngSubmit)="login(loginForm)" novalidate).formulario
 						.contenido
 							label(for="field1") Dirección de Correo Electronico
@@ -22,7 +22,7 @@
 							a(mat-button href="/login/facebook").fb
 								span Iniciar Sesión con facebook
 								img(src="assets/images/facebook-32.png")
-				mat-tab(label="Registrate" color="primary")
+				mat-tab(label="Registrate")
 					form([formGroup]="registerForm" (ngSubmit)="registro(registerForm)" novalidate).formulario
 						.contenido
 							label(for="field1") Dirección de Correo Electronico
