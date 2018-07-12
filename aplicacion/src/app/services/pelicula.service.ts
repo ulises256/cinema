@@ -47,5 +47,9 @@ export class PeliculaService {
     public static paginacion(items, pagina) {
         return axios.default.get(this.apiUrl + '/data/pelicula/paginacion/' + items +'/'+ pagina);
     }
+
+    public static obtenerEstrenos() {
+        return axios.default.get(this.apiUrl + '/data/pelicula/estrenos');
+    }
 }
     

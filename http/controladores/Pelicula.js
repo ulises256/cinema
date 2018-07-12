@@ -93,6 +93,9 @@ ex.produccion = (req, res, next) => pelicula.findById(req.params.idPeli)
     .then(peli =>peli? peli.getProduccion() : null)
     .then(response => res.status(200).jsonp(response));
 
+ex.estrenos = (req, res, next) => pelicula.findAll({where: {estreno: "si"}})
+    .then(response => res.status(200).jsonp(response));
+
 ex.paginacion = function(req, res, next) {
 
     pelicula.findAndCountAll(

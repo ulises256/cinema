@@ -29,7 +29,7 @@ export class PerfilPeliculaComponent implements OnInit, AfterViewInit, OnDestroy
 	ngAfterViewInit() {
 		 this.route.params.subscribe(params => {
 			PeliculaService.obtenerPelicula(+params['id'])
-				.then(response => this.pelicula = new Pelicula(response.data.id, response.data.nombre, response.data.historia, response.data.videoId))
+				.then(response => this.pelicula = new Pelicula(response.data.id, response.data.nombre, response.data.historia, response.data.videoId, response.data.estreno))
 				.then(pelicula => console.log(pelicula));
 		});
 	}

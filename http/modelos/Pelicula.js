@@ -3,7 +3,12 @@ module.exports = ({Sequelize, sequelize } = conector) =>
         nombre: Sequelize.STRING,
         historia: Sequelize.TEXT,
         videoPath: Sequelize.STRING,
-        videoId: Sequelize.STRING
+        videoId: Sequelize.STRING,
+        estreno: {
+            type: Sequelize.ENUM,
+            values: [ 'si', 'no' ],
+            defaultValue: 'no',
+        }
     },{
     	name : {
     		singular: 'pelicula',

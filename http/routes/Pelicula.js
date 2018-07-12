@@ -17,6 +17,9 @@ route.route('/data/pelicula/reparto/:idPeli')
 route.route('/data/pelicula/produccion/:idPeli')
         .get(x.reparto)
 
+route.route('/data/pelicula/estrenos')
+        .get(x.estrenos)        
+
 route.route('/data/pelicula/paginacion/:Items/:Pagina')
         .get(x.paginacion)        
 

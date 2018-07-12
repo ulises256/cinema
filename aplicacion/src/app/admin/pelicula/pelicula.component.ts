@@ -18,7 +18,7 @@ export class PeliculaComponent implements OnInit {
 	constructor(private dialog: MatDialog, private _router: Router) { }
 
 	agregarPelicula() {
-		let pelicula: Pelicula = new Pelicula(null, null,null,  null);
+		let pelicula: Pelicula = new Pelicula(null, null,null,  null, null);
         
         const dialogRef = this.dialog.open(AnadirPeliculaComponent, {
             width: this.dimensionesMoviles.anchura,
@@ -55,7 +55,7 @@ export class PeliculaComponent implements OnInit {
 
 	ngOnInit() {
 		PeliculaService.obtenerPeliculas()
-		.then(res => this.peliculas = res ? res.data.map(n => new Pelicula(n.id, n.nombre, n.historia, n.videoLink)) : null)
+		.then(res => this.peliculas = res ? res.data.map(n => new Pelicula(n.id, n.nombre, n.historia, n.videoLink, n.estreno)) : null)
 	}
 
 }
