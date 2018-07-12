@@ -1,5 +1,19 @@
 
 .ver-video
     .ver-video-content
-        mat-card.titulo
-            h1 VerVideo Component Works
+        .info 
+            .detalles(*ngIf="pelicula")
+                .bienvenido
+                    h3 Bienvenido
+                    p {{pelicula?.getHistoria()}}
+                .vermas
+                    h2 Material extra
+                    .button
+                        a(mat-raised-button color="primary" (click)="eventClick(2)").verpeli Historia
+                    .button
+                        a(mat-raised-button color="primary" (click)="eventClick(4)").verpeli Producción
+                    .button
+                        a(mat-raised-button color="primary" (click)="eventClick(3)").verpeli Reparto                                                
+
+            .video
+                videojs(*ngIf="pelicula" [url]="pelicula?.getVideo()" [autoplay]="true")

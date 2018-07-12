@@ -1,4 +1,6 @@
 import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { TimelineLite, TweenMax } from "gsap";
+import * as $ from 'jquery';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { AuthService } from '../services/auth.service';
 import { Usuario } from '../models/usuario.model';
@@ -31,7 +33,7 @@ export class PeliculasMainComponent implements OnInit {
 		 this.route.params.subscribe(async params => {
 			await PeliculaService.obtenerPelicula(+params['id'])
 			.then(res => res && res.data ? 
-									this.pelicula = new Pelicula(res.data.id, res.data.nombre, res.data, res.data.video, res.data.estreno)
+									this.pelicula = new Pelicula(res.data.id, res.data.nombre, res.data.historia, res.data.videoId, res.data.estreno)
 									: 
 									// this.router.navigate([''])
 									null
@@ -54,6 +56,9 @@ export class PeliculasMainComponent implements OnInit {
 
 	ngOnInit() {
 		this.us.obtenerUsuario().subscribe(user => this.usuario = user);
+
+		let tl = new TimelineLite({delay:0.5})
+		TweenMax.set('#linetop', {rotation: 90});
 	}
 
 }

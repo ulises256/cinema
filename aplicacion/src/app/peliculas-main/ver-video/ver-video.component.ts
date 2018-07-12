@@ -1,5 +1,6 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Pelicula } from '../../models';
 
 @Component({
     selector: 'app-ver-video',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./ver-video.component.styl']
 })
 export class VerVideoComponent implements OnInit {
-    
+    @Input() pelicula: Pelicula;
+    @Output() selected = new EventEmitter();
     constructor() { }
-
+    eventClick(item) {
+        this.selected.emit(item)
+    }
     ngOnInit() {
     }
 }

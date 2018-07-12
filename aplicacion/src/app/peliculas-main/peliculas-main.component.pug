@@ -6,6 +6,9 @@ div(class="contenedor" [class.isMobile]="mobileQuery.matches")
                     mat-icon menu            
                 h1 {{pelicula.getNombre()}}
             .busqueda
+                //- a(mat-button  [routerLink]="['/']" [routerLinkActive]="['active']")
+                //-     img(src="assets/images/cineclub.png")
+                div(class="line-white" id="linetop")
             .botones
                 a(mat-button  href="http://www.uninaciones.com/").universidad
                     img(src="assets/images/uninaciones.png")
@@ -17,8 +20,15 @@ div(class="contenedor" [class.isMobile]="mobileQuery.matches")
 
         mat-sidenav-content
             div.contenido
-                app-home-pelicula(*ngIf="navs[0].mostrar")
-                app-ver-video(*ngIf="navs[1].mostrar")
+                app-home-pelicula(*ngIf="navs[0].mostrar" [pelicula]="pelicula" (selected)="mostrar($event)")
+                app-ver-video(*ngIf="navs[1].mostrar" [pelicula]="pelicula" (selected)="mostrar($event)")
                 app-historia(*ngIf="navs[2].mostrar")
                 app-reparto(*ngIf="navs[3].mostrar")                
                 app-galeria(*ngIf="navs[4].mostrar")
+    .footer(color="primary")
+        .derechos
+            p 2018 Universidad de las Naciones
+        .drechos2
+            p Todos los derechos reservados
+        .separator
+        .iconos-sociales

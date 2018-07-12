@@ -6,8 +6,8 @@ const unlinkAsync = promisify(fs.unlink)
 var multer = require('multer');
 const path = require('path');
 var _ = require('lodash');
-const uploadDir = path.join(__dirname, '/..', '/..', '/aplicacion/dist/assets/videos/');
-// const uploadDir = path.join(__dirname, '/..', '/..', '/aplicacion/src/assets/videos/');
+// const uploadDir = path.join(__dirname, '/..', '/..', '/aplicacion/dist/assets/videos/');
+const uploadDir = path.join(__dirname, '/..', '/..', '/aplicacion/src/assets/videos/');
 
 var ex = module.exports = {};
 

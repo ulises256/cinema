@@ -13,6 +13,7 @@ const routes: Routes = [
   { 
     path: ':id',
     component: PeliculasMainComponent,
+    canActivate: [AuthGuard]
     // children: [
     //   {
     //     path:'',

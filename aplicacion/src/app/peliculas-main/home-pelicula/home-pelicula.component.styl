@@ -1,12 +1,93 @@
 
 .home-pelicula
     display flex
-    flex-direction columns 
+    flex-direction row
     width 100%
     height 100%
+    background-color transparent
     .home-pelicula-content
         width 100%
-        height 100%
+        display grid
+        grid-template-columns 100% //indica que es de una columna de 100% de anccho
+        grid-template-rows 0.5fr 1fr 1fr //indica qie son 3 filas
         margin 5px 5px 5px 5px
-        .titulo
-            margin 10px 50px 10px 50px
+        color white
+        .titulo-top, .titulo-medium
+            display flex
+            justify-content center
+            align-content center
+        .titulo-top
+            .titulo
+                display flex
+                flex-direction column
+                justify-content center
+                align-items center
+                height 100%
+                h3 
+                    font-size 34px
+                    height 20px         
+        .titulo-medium
+            .titulo
+                display flex
+                flex-direction column
+                justify-content center
+                align-items center
+                height 100%
+                .title
+                    h1
+                        font-size 100px
+                        height 10px
+                    p
+                        font-size 54px
+                    .line-white
+                        position absolute
+                        background-color white
+                        width 250px
+                        height 1px
+                .empezar
+                    cursor pointer
+                    h3 
+                        font-size 50px
+                        height 10px
+                    .line
+                        position absolute
+                        background-color white
+                        width 376px
+                        height 1px
+        .accesos
+            display flex
+            flex-direction row
+            justify-content center
+            align-content center
+            width 100%
+            margin-top 10px
+            .galeria, .historia
+                display flex
+                flex 1
+                margin 10px 50px 10px 50px
+                .aceesito
+                    cursor pointer
+                    display flex
+                    justify-content center
+                    align-content center
+                    width 250px
+                    height 150px
+                    background-color gray
+                    background-position center center
+                    background-repeat no-repeat
+                    background-size cover
+                    h2
+                        height 0px
+                        font-size 24px
+                        text-shadow: -5px -5px 5px #aaa;
+                    .line-white
+                        position absolute
+                        background-color white
+                        width 200px
+                        height 1px                        
+            .galeria
+                justify-content flex-start
+            .historia
+                justify-content flex-end
+
+
