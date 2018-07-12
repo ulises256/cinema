@@ -1,0 +1,24 @@
+div(class="contenedor" [class.isMobile]="mobileQuery.matches")
+    mat-toolbar(class="nav-toolbar")
+        mat-toolbar-row(id="menu-list")
+            .home-button
+                button(mat-icon-button (click)="snav.toggle()" matTooltip="Abrir menu")
+                    mat-icon menu            
+                h1 {{pelicula.getNombre()}}
+            .busqueda
+            .botones
+                a(mat-button  href="http://www.uninaciones.com/").universidad
+                    img(src="assets/images/uninaciones.png")
+    mat-sidenav-container(class="sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 50 : 0")
+        mat-sidenav(#snav [mode]="'over'" [fixedInViewport]="mobileQuery.matches" [opened]="false")
+            mat-nav-list
+                mat-list-item(*ngFor="let nav of navs; let i = index" (click)="snav.toggle(); mostrar(i)" )
+                    h1 {{nav.nombre}}
+
+        mat-sidenav-content
+            div.contenido
+                app-home-pelicula(*ngIf="navs[0].mostrar")
+                app-ver-video(*ngIf="navs[1].mostrar")
+                app-historia(*ngIf="navs[2].mostrar")
+                app-reparto(*ngIf="navs[3].mostrar")                
+                app-galeria(*ngIf="navs[4].mostrar")

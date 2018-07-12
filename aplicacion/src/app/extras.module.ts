@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from './material.module';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
@@ -15,9 +13,7 @@ import { SafeImagePipe } from './pipes/safe-image.pipe';
 
 @NgModule({
     imports: [
-        BrowserModule,
         CommonModule,
-        BrowserAnimationsModule,
         MaterialModule,
         FormsModule,
         ReactiveFormsModule,

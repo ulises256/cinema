@@ -1,0 +1,96 @@
+.tool-bar-spacer
+    flex 1 1 auto
+mat-sidenav
+    width 100%
+    display flex
+    flex-direction column
+    justify-content center
+    align-content center
+    background-image url("assets/images/condesa_web_inicio_sesion.png")
+    background-position center center
+    background-repeat no-repeat
+    background-size cover
+    opacity 0.8
+    mat-nav-list
+        width 100%
+        height 100%
+        .mat-list-item
+            display flex
+            justify-content center
+            align-items center
+            height 10.5vh
+            h1
+                color white
+.contenedor
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image url("assets/images/condesa_web_inicio_sesion.png")
+    background-position center center
+    background-repeat no-repeat
+    background-size cover    
+    h1
+        text-align: center
+    .nav-toolbar
+        margin: 0% auto
+        text-align: center;
+        height  10.5vh
+        mat-toolbar-row
+            display flex
+            position relative
+            flex-direction row
+            justify-content space-around
+            align-content center
+            color white
+            background-color black
+            height 100%
+            .home-button
+                flex 2
+                display flex
+                a
+                    height 64px
+                    img
+                        width 100%
+                        height 100%
+            .busqueda
+                flex 7
+            .botones
+                display flex
+                flex-direction row
+                flex 5
+                color white !important
+                justify-content flex-end
+                align-content center
+                a
+                    display flex
+                    justify-content center
+                    align-items center
+                    height 64px
+                .universidad
+                    height 64px
+                    img
+                        width 172px
+                        height 64px            
+.isMobile
+    .nav-toolbar
+        position: fixed;
+        /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+        z-index: 2;
+    .sidenav-container
+        flex: 1 0 auto
+.mat-drawer-content .mat-sidenav-content
+    margin: 10px
+
+.sidenav-container
+    flex: 1;
+
+.mat-list-item
+        padding 20px
+        margin-left: 10px
+
+.mat-nav-list .active-nav
+    color: #000000;

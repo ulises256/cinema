@@ -2,10 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FormsModule } from "@angular/forms";
+
 import {DndModule} from 'ng2-dnd';
 import { MaterialModule } from './material.module';
 import { AgmCoreModule } from '@agm/core';
-
+import { LoadingModule, ANIMATION_TYPES } from 'ngx-loading';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 import { AppComponent } from './app.component';
@@ -15,9 +16,10 @@ import {AppRoutingModule} from './app.routers';
 // Importando modulos de los componentes principales
 import {MainModule} from './main/main.module';
 import {AdminModule} from './admin/admin.module';
+import { PeliculasMainModule } from './peliculas-main/peliculas-main.module';
 
-import { LoadingModule, ANIMATION_TYPES } from 'ngx-loading';
-import { AutocompleteComponent } from './autocomplete/autocomplete.component';
+
+
 
 @NgModule({
   declarations: [
@@ -28,7 +30,7 @@ import { AutocompleteComponent } from './autocomplete/autocomplete.component';
     BrowserAnimationsModule,
     MaterialModule,
     ChartsModule,
-    MainModule, AdminModule,
+    MainModule, AdminModule, PeliculasMainModule,
     DndModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBMemut_EJ8vHuSf5SdmZ-R4wDBrUQWy6k',

@@ -11,7 +11,12 @@ const app_routes: Routes = [
         path: 'admin',
         loadChildren: './admin/admin.module#AdminModule'
      },
+     {
+        path: 'pelicula',
+        loadChildren: './peliculas-main/peliculas-main.module#PeliculasMainModule'
+     },
     { path: '',   redirectTo: 'main', pathMatch: 'full' },
+    {path: '**', redirectTo: '', pathMatch: 'full'}
 ];
 
 @NgModule({
