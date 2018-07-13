@@ -64,6 +64,7 @@ guardarvideo = function (uri, path) {
 
 ex.create = function (req, res, next) {
     var form = new formidable.IncomingForm();
+    console.log(form)
     form.multiples = true;
     form.keepExtensions = true;
     form.uploadDir = uploadDir;
