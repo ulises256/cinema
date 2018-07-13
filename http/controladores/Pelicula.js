@@ -123,14 +123,13 @@ ex.delete = function (req, res, next) {
 }
 
 
-ex.picturesVideosOftour = function (req, res, next) {
-    var idVideo = req.params.idVideo;
-    videos.findById(idVideo).then(result => {
+ex.picturesVideos = function (req, res, next) {
+    videos.findById(req.params.idPelicula).then(peli => {
 
         clientevimeo.request(/*options*/{
             // This is the path for the videos contained within the staff picks
             // channels
-            path: result.uri + '/pictures',
+            path: peli.uri + '/pictures',
             // This adds the parameters to request page two, and 10 items per
             // page
 
