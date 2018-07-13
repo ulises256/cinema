@@ -9,16 +9,15 @@
                 .title
                     div(class="line-white" id="lineLeft")
                     h1 {{pelicula.getNombre()}}
-                    div(class="line-white" id="lineRight")
                 .empezar((click)="eventClick(1)")
                     h3 Empezar Película
                     div(class="line" id="line")
         .accesos
             .galeria((click)="eventClick(4)")
-                .aceesito([style.backgroundImage]="pelicula.getPortadas() ? makeTrustedImage(pelicula.getPortadas()[0].imagen) : null")
+                .aceesito([style.backgroundImage]="pelicula && (pelicula.getPortadas()) ? makeTrustedImage(pelicula.getPortadas()[0].imagen) : null")
                     div(class="line-white" id="line1")
                     h2 Galería
             .historia((click)="eventClick(2)")
-                .aceesito([style.backgroundImage]="pelicula.getPortadas() ? makeTrustedImage(pelicula.getPortadas()[1].imagen) : null")
+                .aceesito([style.backgroundImage]="pelicula && (pelicula.getPortadas()) ? makeTrustedImage(pelicula.getPortadas()[1].imagen) : null")
                     div(class="line-white" id="line2")
                     h2 Conoce La LAYENDA

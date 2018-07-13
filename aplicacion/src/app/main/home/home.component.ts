@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
 		totalPaginas: undefined
 	}
 
-	img = "assets/images/backgound1.png"
+	img = "assets/images/leyenda.jpg"
 	constructor(private router: Router, private domSanitizer: DomSanitizer) { }
 
 	async ngOnInit() {
@@ -33,17 +33,17 @@ export class HomeComponent implements OnInit {
 		await NoticiaService.ultimaNoticia()
 		.then(response => response && response.data ? this.noticias = new Noticia(response.data.id, response.data.titulo, response.data.descripcion, response.data.status, response.data.createdAt): null)
 
-		// let tl = new TimelineLite({delay:0.5})
-		// TweenMax.set('#lineLeft', {marginTop:50, marginLeft:3});
-		// TweenMax.set('#lineRight', {marginTop:-40, marginLeft:404});
+		let tl = new TimelineLite({delay:0.5})
+		TweenMax.set('#lineLeft', {marginTop:50, marginLeft:3, height: 3,});
+		TweenMax.set('#lineRight', {marginTop:-40, marginLeft:404, height: 3,});
 
-		// tl.addLabel("start", "");
-		// tl.from("#lineLeft", 1, {scaleX:0, transformOrigin:"left"})
-		// tl.from("#lineRight", 1, {scaleX:0, transformOrigin:"right"}, "start")
+		tl.addLabel("start", "");
+		tl.from("#lineLeft", 1, {scaleX:0, transformOrigin:"left", })
+		tl.from("#lineRight", 1, { scaleX:0, transformOrigin:"right",}, "start")
 
-		// $(".titulo").on("click", function() {
-		// 	tl.restart();
-		// })
+		$(".titulo").on("click", function() {
+			tl.restart();
+		})
 	}
 
 	verProyecto(idPelicula) {

@@ -7,7 +7,7 @@ const formidable = require('formidable');
 var multer = require('multer');
 const path = require('path');
 var _ = require('lodash');
-const uploadDir = path.join(__dirname, '/..', '/..', '/aplicacion/dist/assets/videos/');
+const uploadDir = path.join(__dirname, '/..', '/..', '/peliculas');
 // const uploadDir = path.join(__dirname, '/..', '/..', '/aplicacion/src/assets/videos/');
 const vimeoAPI = require('../../conf/oauth').vimeo;
 const Vimeo = require('vimeo').Vimeo;
@@ -27,7 +27,7 @@ var upload = multer({ storage: storage }).single('file_video');
 
 const clientevimeo = new Vimeo(vimeoAPI.client_Identifier, vimeoAPI.client_secrets, vimeoAPI.access_token);
 
-guardarvideo = function (uri, idTour, uris) {
+guardarvideo = function (uri, uris) {
     clientevimeo.request(/*options*/{
         // This is the path for the videos contained within the staff picks
         // channels
@@ -83,7 +83,6 @@ ex.create = function (req, res, next) {
                     var percentage = (bytesUploaded / bytesTotal * 100).toFixed(2)
                     console.log(bytesUploaded, bytesTotal, percentage + '%')
                     porcentaje = percentage;
-
                 },
                 function (error) {
                     console.log(error)
