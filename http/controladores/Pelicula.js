@@ -68,7 +68,9 @@ ex.create = function (req, res, next) {
     form.multiples = true;
     form.keepExtensions = true;
     form.uploadDir = uploadDir;
+    console.log(form)
     form.parse(req, (err, fields, files) => {
+        console.log(fields)
         if (err) { return res.status(500).json({ error: err }) }
         else {
             clientevimeo.upload(
