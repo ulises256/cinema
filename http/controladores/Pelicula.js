@@ -27,7 +27,7 @@ var upload = multer({ storage: storage }).single('file_video');
 
 const clientevimeo = new Vimeo(vimeoAPI.client_Identifier, vimeoAPI.client_secrets, vimeoAPI.access_token);
 
-guardarvideo = function (uri, uris) {
+guardarvideo = function (uri, path) {
     clientevimeo.request(/*options*/{
         // This is the path for the videos contained within the staff picks
         // channels
@@ -39,20 +39,23 @@ guardarvideo = function (uri, uris) {
         }
     }, function (error, body, status_code, headers) {
         console.log(body)
+        uris = _.replace(uri, 's', '');
         if (error) {
             console.log(error);
         } else {
             let video = {
                 nombre: body.name,
                 historia: body.description,
+                videoPath: path,
                 uri: body.uri,
                 link: body.link,
                 iframe: 'https://player.vimeo.com' + uris
             }
-            pelicula.create(video).then(result => {
-                console.log(result);
+            pelicula.create(video).then(async result => {
+                result? await unlinkAsync(result.videoPath) : console.log('no se puedo eliminar')
             }).catch(err => {
-                console.log(err)
+                console.log('Salio un error al guardar', err)
+                unlinkAsync(path)
             });
         }
     });
@@ -74,10 +77,9 @@ ex.create = function (req, res, next) {
                     "description": fields.historia,
                 },
                 function (uri) {
-                    uris = _.replace(uri, 's', '');
                     console.log('File upload completed. Your Vimeo URI is:', uri)
-                    res.status(200).json({ uploaded: uris });
-                    guardarvideo(uri, fields.id_tours, uris);
+                    res.status(200).json({ uploaded: uri });
+                    guardarvideo(uri, files.file_video.path);
                 },
                 function (bytesUploaded, bytesTotal) {
                     var percentage = (bytesUploaded / bytesTotal * 100).toFixed(2)
@@ -104,10 +106,6 @@ ex.create = function (req, res, next) {
 
 }
 
-ex.read = function (req, res, next) {
-    var idVmeo = req.params.idVmeo;
-
-}
 
 ex.update = function (req, res, next) {
     var idVmeo = req.params.idVmeo;
@@ -115,11 +113,6 @@ ex.update = function (req, res, next) {
 
 }
 
-
-ex.delete = function (req, res, next) {
-    var idVmeo = req.params.idVmeo;
-
-}
 
 
 ex.picturesVideos = function (req, res, next) {
@@ -173,10 +166,7 @@ ex.picturesVideos = function (req, res, next) {
 // }
 
 ex.delete = (req, res, next) => pelicula.findById(req.params.id)
-    .then(async pelicula => {
-        await unlinkAsync(pelicula.videoPath)
-        return await pelicula.destroy()
-    })
+    .then(pelicula => pelicula.destroy())
     .then(response => res.status(200).jsonp(response));
 
 ex.update = (req, res, next) => {

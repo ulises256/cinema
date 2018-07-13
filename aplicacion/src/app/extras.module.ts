@@ -10,6 +10,7 @@ import { AutocompleteComponent } from './extras/autocomplete/autocomplete.compon
 import { DropifyComponent } from './extras/dropify/dropify.component';
 import { FileUploadComponent } from './extras/file-upload/file-upload.component';
 import { VideoJSComponent } from './extras/videojs/videojs.component';
+import { VimeoComponent } from './extras/vimeo/vimeo.component';
 
 @NgModule({
     imports: [
@@ -26,7 +27,8 @@ import { VideoJSComponent } from './extras/videojs/videojs.component';
         DropifyComponent,
         FiltroNombreProyecto,
         FileUploadComponent,
-        VideoJSComponent
+        VideoJSComponent,
+        VimeoComponent
     ],
     exports: [
         AutocompleteComponent,
@@ -34,7 +36,8 @@ import { VideoJSComponent } from './extras/videojs/videojs.component';
         FiltroNombreProyecto,
         FileUploadComponent,
         VideoJSComponent,
-        SafeHtmlPipe
+        SafeHtmlPipe,
+        VimeoComponent
     ]
   })
 

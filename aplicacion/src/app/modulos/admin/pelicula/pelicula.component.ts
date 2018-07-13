@@ -55,7 +55,7 @@ export class PeliculaComponent implements OnInit {
 
 	ngOnInit() {
 		PeliculaService.obtenerPeliculas()
-		.then(res => this.peliculas = res ? res.data.map(n => new Pelicula(n.id, n.nombre, n.historia, n.videoLink, n.estreno)) : null)
+		.then(res => this.peliculas = res ? res.data.map(n => new Pelicula(n.id, n.nombre, n.historia, n.iframe, n.estreno)) : null)
 	}
 
 }

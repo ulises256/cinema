@@ -8,7 +8,7 @@
                     mat-icon {{editable.icon}}
             .info
                 .video
-                    videojs(*ngIf="pelicula" [url]="pelicula?.getVideo()" [autoplay]="false")
+                    iframe(*ngIf="pelicula" [src]="URL()" width="500" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen)
                 .detalles(*ngIf="pelicula")
                     mat-form-field(class="input-layout")
                         input(

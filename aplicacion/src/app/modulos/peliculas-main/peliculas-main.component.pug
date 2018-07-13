@@ -2,7 +2,7 @@ div(class="contenedor" [class.isMobile]="mobileQuery.matches")
     mat-toolbar(class="nav-toolbar")
         mat-toolbar-row(id="menu-list")
             .home-button
-                button(mat-icon-button (click)="snav.toggle()" matTooltip="Abrir menu")
+                button(mat-icon-button (click)="snav.toggle()" )
                     mat-icon menu            
                 h1 {{pelicula.getNombre()}}
             .busqueda

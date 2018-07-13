@@ -33,7 +33,7 @@ export class PeliculasMainComponent implements OnInit {
 		 this.route.params.subscribe(async params => {
 			await PeliculaService.obtenerPelicula(+params['id'])
 			.then(res => res && res.data ? 
-									this.pelicula = new Pelicula(res.data.id, res.data.nombre, res.data.historia, res.data.videoId, res.data.estreno)
+									this.pelicula = new Pelicula(res.data.id, res.data.nombre, res.data.historia, res.data.iframe, res.data.estreno)
 									: 
 									// this.router.navigate([''])
 									null

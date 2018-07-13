@@ -1,6 +1,7 @@
 
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Pelicula } from '../../../models';
+import { DomSanitizer } from '../../../../../node_modules/@angular/platform-browser';
 
 @Component({
     selector: 'app-ver-video',
@@ -10,10 +11,13 @@ import { Pelicula } from '../../../models';
 export class VerVideoComponent implements OnInit {
     @Input() pelicula: Pelicula;
     @Output() selected = new EventEmitter();
-    constructor() { }
+    constructor(private sanitizer: DomSanitizer) { }
     eventClick(item) {
         this.selected.emit(item)
     }
+    URL() {
+		return this.sanitizer.bypassSecurityTrustResourceUrl(this.pelicula.getVideo() + '?byline=0&amp;portrait=0');
+	}
     ngOnInit() {
     }
 }

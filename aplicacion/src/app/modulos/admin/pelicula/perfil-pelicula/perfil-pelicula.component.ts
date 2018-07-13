@@ -13,8 +13,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class PerfilPeliculaComponent implements OnInit, AfterViewInit, OnDestroy {
 	public pelicula: Pelicula;
-	public portada: Imagen;
 	public portadas: Imagen[]
+	public portada: Imagen;
 	public editable = {disiabled: true, icon: 'edit', tooltip: 'Editar Campos'};
 	constructor( private domSanitizer: DomSanitizer, private formBuilder: FormBuilder, private route: ActivatedRoute, private router: Router) {}
 
@@ -29,9 +29,13 @@ export class PerfilPeliculaComponent implements OnInit, AfterViewInit, OnDestroy
 	ngAfterViewInit() {
 		 this.route.params.subscribe(params => {
 			PeliculaService.obtenerPelicula(+params['id'])
-				.then(response => this.pelicula = new Pelicula(response.data.id, response.data.nombre, response.data.historia, response.data.videoId, response.data.estreno))
+				.then(response => this.pelicula = new Pelicula(response.data.id, response.data.nombre, response.data.historia, response.data.iframe, response.data.estreno))
 				.then(pelicula => console.log(pelicula));
 		});
+	}
+
+	URL() {
+		return this.domSanitizer.bypassSecurityTrustResourceUrl(this.pelicula.getVideo() + '?byline=0&amp;portrait=0');
 	}
 
 	agregarPortada() {
@@ -51,3 +55,4 @@ export class PerfilPeliculaComponent implements OnInit, AfterViewInit, OnDestroy
 	}
 
 }
+

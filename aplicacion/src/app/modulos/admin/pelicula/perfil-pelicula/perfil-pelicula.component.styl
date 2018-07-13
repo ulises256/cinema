@@ -34,6 +34,19 @@
                 .detalles
                     display flex
                     flex-direction column
+                .video
+                    position relative
+                    padding-bottom 56.25%
+                    height 0
+                    overflow hidden
+                    max-width 100%
+                    height auto
+                .video iframe, .video object, .video embed 
+                    position absolute
+                    top 0
+                    left 0
+                    width 100%
+                height 100%                    
             .portadas
                 display flex
                 flex-direction column
@@ -56,10 +69,7 @@
                         width 100%
                         height 100%
                         button
-                            margin 10px 50px 10px 50px                
-
-
-
+                            margin 10px 50px 10px 50px
 mat-grid-list
     mat-grid-tile
         img
