@@ -5,15 +5,15 @@ import {RouterModule, Routes} from '@angular/router';
 const app_routes: Routes = [
     {
         path: 'main',
-        loadChildren: './main/main.module#MainModule'
+        loadChildren: './modulos//main/main.module#MainModule'
      },
      {
         path: 'admin',
-        loadChildren: './admin/admin.module#AdminModule'
+        loadChildren: './modulos//admin/admin.module#AdminModule'
      },
      {
         path: 'pelicula',
-        loadChildren: './peliculas-main/peliculas-main.module#PeliculasMainModule'
+        loadChildren: './modulos//peliculas-main/peliculas-main.module#PeliculasMainModule'
      },
     { path: '',   redirectTo: 'main', pathMatch: 'full' },
     {path: '**', redirectTo: '', pathMatch: 'full'}

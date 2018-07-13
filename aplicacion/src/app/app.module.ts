@@ -12,11 +12,10 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { AppComponent } from './app.component';
 // importando  Rutas
 import {AppRoutingModule} from './app.routers';
-
 // Importando modulos de los componentes principales
-import {MainModule} from './main/main.module';
-import {AdminModule} from './admin/admin.module';
-import { PeliculasMainModule } from './peliculas-main/peliculas-main.module';
+import { MainModule } from './modulos/main/main.module';
+import { AdminModule } from './modulos/admin/admin.module';
+import { PeliculasMainModule } from './modulos/peliculas-main/peliculas-main.module';
 
 
 

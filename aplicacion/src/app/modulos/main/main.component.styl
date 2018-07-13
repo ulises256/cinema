@@ -1,0 +1,110 @@
+animation(animation, duration = 1s, delay = 0s)
+    -webkit-animation animation duration cubic-bezier(0.445, 0.050, 0.550, 0.950) !important
+    animation animation duration cubic-bezier(0.445, 0.050, 0.550, 0.950) !important
+    -webkit-transition all duration ease-in-out !important
+    -moz-transition all duration ease-in-out !important
+    -o-transition all duration ease-in-out !important
+    transition all duration ease-in-out !important
+    -webkit-transition-delay delay ease-in-out !important
+    transition-delay delay ease-in-out !important
+
+
+main
+    width 100%
+    height 100vh
+    display grid
+    grid-template-columns 100% //indica que es de una columna de 100% de anccho
+    grid-template-rows 0.5fr 10fr 0.5fr //indica qie son 3 filas
+    background-color black
+    header
+        width 100%
+        z-index 10
+        height 64px
+        #menu
+            margin 0px !important
+            transition all 0.5s ease
+            mat-toolbar-row
+                display flex
+                position relative
+                flex-direction row
+                justify-content space-around
+                align-content center
+                background-color black
+                .home-button
+                    flex 2
+                    a
+                        height 64px
+                        img
+                            width 100%
+                            height 100%
+                .busqueda
+                    flex 7
+                .botones
+                    display flex
+                    flex-direction row
+                    flex 5
+                    color white !important
+                    justify-content flex-end
+                    align-content center
+                    a
+                        display flex
+                        justify-content center
+                        align-items center
+                        height 64px
+                    .universidad
+                        height 64px
+                        img
+                            width 172px
+                            height 64px
+                #menu-line
+                    display block
+                    position absolute
+                    left 50%
+                    top 25px
+                    width 0
+                    height 5px
+                    background-color white
+
+        #menu-movil
+            margin 0px !important
+            transition all 0.5s ease 
+            mat-toolbar-row
+                display flex
+                flex-direction row
+                justify-content space-around
+                .menu, .inicio, .user
+                    width 100%
+    .contenido
+        width 100%
+        height 100%
+    .footer
+        display flex
+        background-color black
+        width 100%
+        z-index 2
+        .derechos, .drechos2, .iconos-sociales
+            display flex
+            flex-direction row
+            justify-content center
+            align-content center            
+        .derechos
+            flex 3
+            color white
+        .drechos2
+            color white
+            flex 3
+        .separator
+            flex 7
+        .iconos-sociales
+            flex 3
+            .facebook, .instagram, .twitter
+                width 80%
+            .facebook
+                color white
+            a
+                display flex
+                justify-content center
+                align-items center
+            img
+                width 24px
+                height 24px
