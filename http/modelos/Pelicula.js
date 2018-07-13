@@ -8,7 +8,10 @@ module.exports = ({Sequelize, sequelize } = conector) =>
             type: Sequelize.ENUM,
             values: [ 'si', 'no' ],
             defaultValue: 'no',
-        }
+        },
+        uri: Sequelize.STRING,
+        link: Sequelize.STRING,
+        iframe: Sequelize.STRING,
     },{
     	name : {
     		singular: 'pelicula',
