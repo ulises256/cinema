@@ -188,7 +188,7 @@ ex.delete = (req, res, next) => pelicula.findById(req.params.id)
             }
         }) : null
     })
-    .then(pelicula => pelicula? pelicula.destroy() : {nada: 'no se elimino'})
+    .then(pelicula => pelicula? pelicula.destroy() : console.log(pelicula))
     .then(response => res.status(200).jsonp(response));
 
 ex.update = (req, res, next) => {
