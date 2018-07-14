@@ -169,7 +169,26 @@ ex.picturesVideos = function (req, res, next) {
 // }
 
 ex.delete = (req, res, next) => pelicula.findById(req.params.id)
-    .then(pelicula => pelicula.destroy())
+    .then(peli => {
+        peli ?     clientevimeo.request(/*options*/{
+            // This is the path for the videos contained within the staff picks
+            // channels
+            method: 'DELETE',
+            path: peli.uri,
+            // This adds the parameters to request page two, and 10 items per
+            // page
+            query: {
+                fields: 'uri,name,description,duration,link'
+            }
+        }, function (error, body, status_code, headers) {
+            if (error) {
+                console.log(error);
+            } else {
+              return peli;
+            }
+        }) : null
+    })
+    .then(pelicula => pelicula? pelicula.destroy() : {nada: 'no se elimino'})
     .then(response => res.status(200).jsonp(response));
 
 ex.update = (req, res, next) => {
