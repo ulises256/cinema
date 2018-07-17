@@ -37,8 +37,7 @@ export class PeliculasMainComponent implements OnInit {
 									: 
 									// this.router.navigate([''])
 									null
-				)
-			.then(res => console.log(res));
+				);
 		})
 	}
 

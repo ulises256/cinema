@@ -10,15 +10,12 @@ export class AuthGuard implements CanActivate, CanActivateChild  {
     constructor(private router: Router, private auth: AuthService) { }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-		console.log('Estoy checando si estas logeado')
 		return this.auth.usuarioLogeado()
 		.do(res => res ? null : this.router.navigate(['/login']));
 	}
 	
 	canActivateChild() {
-		console.log('Estoy checandoo si tienes permisos we e.e');
 		 let usuario = this.auth.obtenerUsuario().getValue()
-		 console.log(usuario)
 		 if(usuario && usuario.getTipo()=="admin"){
 			 return true
 		 }

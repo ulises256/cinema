@@ -9,11 +9,15 @@
                 .vermas
                     h2 Material extra
                     .button
-                        a(mat-raised-button color="primary" (click)="pausa = !pausa").verpeli Reparto
+                        a(mat-raised-button color="primary" (click)="pausa = !pausa; repartoOrProduccion = true").verpeli Reparto
                     .button
-                        a(mat-raised-button color="primary" (click)="eventClick(3)").verpeli Producción
+                        a(mat-raised-button color="primary" (click)="pausa = !pausa; repartoOrProduccion = false").verpeli Producción
                     .button
                         a(mat-raised-button color="primary" (click)="eventClick(3)").verpeli Historia                                                
 
             .embed-container
-                videojs(*ngIf="pelicula" [url]="URL()" [reparto]="pelicula?.getReparto()" [autoplay]="pausa" [parar]="pausa")
+                videojs(*ngIf="pelicula" [url]="URL()"
+                        [reparto]="repartoOrProduccion ? pelicula?.getReparto() : null"
+                        [produccion]="repartoOrProduccion ? null : pelicula?.getProduccion()"
+                        [autoplay]="pausa"
+                        [parar]="pausa")

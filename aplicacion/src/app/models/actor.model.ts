@@ -27,7 +27,6 @@ export class Actor {
     }
 
     public setFoto(imagen: Imagen){
-		console.log(imagen)
 		this.imagen = imagen;
 		imagen.getId() ?
 			ImagenService.actualizarImagen(imagen)

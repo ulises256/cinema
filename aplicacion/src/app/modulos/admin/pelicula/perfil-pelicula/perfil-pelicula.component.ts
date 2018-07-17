@@ -30,7 +30,6 @@ export class PerfilPeliculaComponent implements OnInit, AfterViewInit, OnDestroy
 		 this.route.params.subscribe(params => {
 			PeliculaService.obtenerPelicula(+params['id'])
 				.then(response => this.pelicula = new Pelicula(response.data.id, response.data.nombre, response.data.historia, response.data.link, response.data.estreno))
-				.then(pelicula => console.log(pelicula));
 		});
 	}
 

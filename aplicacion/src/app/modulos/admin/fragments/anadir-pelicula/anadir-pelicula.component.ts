@@ -24,7 +24,6 @@ export class AnadirPeliculaComponent implements OnInit {
 	}
 
 	submit(form: FormGroup) {
-		console.log(form)
 		if (form.controls.nombre.valid &&
 			form.controls.video.valid &&
 			form.controls.historia.valid
@@ -34,7 +33,6 @@ export class AnadirPeliculaComponent implements OnInit {
 			this.data.setVideo(form.controls.video.value);
 			this.data.setNombre(form.controls.nombre.value);
 			this.data.setHistoria(form.controls.historia.value);
-			console.log(formData)
 			this.dialogRef.close(this.data)
 		}
 	}

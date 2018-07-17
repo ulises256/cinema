@@ -27,7 +27,6 @@ export class PeliculaComponent implements OnInit {
         });
 
         dialogRef.afterClosed().subscribe(result => {
-            console.log(result)
             result ?  (PeliculaService.crearPelicula(result)
                         .then(responde => this._router.navigate(['admin/peliculas/' + responde.data.id]))): null
         });
@@ -38,7 +37,6 @@ export class PeliculaComponent implements OnInit {
 	}
 
 	eliminarPelicula(idPelicula) {
-		console.log(idPelicula)
 		const dialogRef = this.dialog.open(ConfirmDelDialogComponent, {
             width: '290px',
             height: '200px'

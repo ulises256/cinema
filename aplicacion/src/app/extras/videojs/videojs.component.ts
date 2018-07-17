@@ -7,9 +7,10 @@ import {
 	AfterViewInit,
 	ViewEncapsulation,
 	OnChanges,
-	SimpleChanges
+	SimpleChanges,
+	ViewChild
 } from '@angular/core';
-import { Reparto } from '../../models';
+import { Reparto, Produccion } from '../../models';
 import { DomSanitizer } from '../../../../node_modules/@angular/platform-browser';
 
 
@@ -27,7 +28,7 @@ export class VideoJSComponent implements OnInit, OnDestroy, AfterViewInit, OnCha
 	private player: any;
 	@Input() mostrarReparto = false;
 
-	@Input() mostrarProduccion = false;
+	@Input() produccion: Produccion;
 	//video play
 	@Input() autoplay = false;
 	// video asset url
@@ -37,6 +38,8 @@ export class VideoJSComponent implements OnInit, OnDestroy, AfterViewInit, OnCha
 
 	@Input() parar: boolean = false
 
+	repart: any;
+	producc: any;
 
 	// constructor initializes our declared vars
 	constructor(elementRef: ElementRef, private domSanitizer: DomSanitizer) {
@@ -55,11 +58,12 @@ export class VideoJSComponent implements OnInit, OnDestroy, AfterViewInit, OnCha
 	ngAfterViewInit() {
 		this.contruirPlayer();
 		this.autoplay ? this.player.play() : null;
+		this.repart = document.getElementById('reparto');
+		this.producc = document.getElementById('produccion');
 	}
 	ngOnChanges(changes: SimpleChanges) {
-		if(this.player != undefined && changes['parar'] && this.reparto){
-			changes['parar'].currentValue ==true ? this.player.pause() : this.player.play();
-		}
+		if(this.player && changes['parar'] && (this.reparto || this.produccion))
+			changes['parar'].currentValue ==true ? this.pausar() : this.reproducir()
 	}
 	contruirPlayer() {
 		var options = {
@@ -78,6 +82,32 @@ export class VideoJSComponent implements OnInit, OnDestroy, AfterViewInit, OnCha
 				attachToControlBar: true
 			}]
 		});
+	}
+
+	overlay(contenido) {
+		this.player.overlay({
+			overlays: [{
+				start: 'pause',
+				content: contenido,
+				end: 'playing',
+				attachToControlBar: true
+			}]
+		});
+	}
+
+	pausar() {
+		this.player.pause()
+		if(this.reparto){
+			this.overlay(this.repart);
+		}
+		
+		if(this.produccion){
+			this.overlay(this.producc)
+		}			 
+	}
+
+	reproducir() {
+		this.player.play()
 	}
 
 	fullscreen() {

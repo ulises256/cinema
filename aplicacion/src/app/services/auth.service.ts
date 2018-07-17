@@ -14,7 +14,6 @@ export class AuthService {
     private isLoginObserver = this.isLoginSubject.asObservable()
 
     constructor(private router: Router) {
-        console.log('Auth contructor')
         localStorage.getItem("token") != null ? this.validarToken(localStorage.getItem("token"), true) : null;
     }
 
@@ -80,7 +79,6 @@ export class AuthService {
         return this.usuarioSubject.asObservable()
             .first()
             .map(user => {
-                console.log(user)
                 if (user && user.getTipo() === "admin") {
                     return true
                 }

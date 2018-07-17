@@ -10,7 +10,6 @@ export class VimeoComponent implements OnInit {
 
 	@Input() uri: string;
 	constructor(private sanitizer: DomSanitizer) {
-		console.log(this.uri)
 	}
 
 	URL() {
@@ -18,7 +17,6 @@ export class VimeoComponent implements OnInit {
 	}
 	
 	ngOnInit() {
-		console.log(this.uri)
 	}
 
 }

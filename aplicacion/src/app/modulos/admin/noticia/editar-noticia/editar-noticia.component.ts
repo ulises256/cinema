@@ -52,7 +52,6 @@ export class EditarNoticiaComponent implements OnInit {
 	}
 
 	publicarNoticia(event) {
-		console.log(event)
 		event.checked ? this.noticia.setStatus('publico')
 		: this.noticia.setStatus('sinpublicar')
 	}
@@ -60,7 +59,6 @@ export class EditarNoticiaComponent implements OnInit {
 	ngOnInit() {
 
 		this.route.params.subscribe(async params => {
-			console.log(params)
 			params.id ?
 				await NoticiaService.obtenerNoticia(params.id)
 					.then(response => response && response.data ? this.noticia = new Noticia(response.data.id, response.data.titulo, response.data.descripcion, response.data.status) : null)

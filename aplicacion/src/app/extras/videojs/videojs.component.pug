@@ -7,6 +7,7 @@ video#vid1( *ngIf="url"
 
 #reparto
     .actores(*ngIf="reparto")
+        h2 Reparto de la pelicula
         mat-grid-list(cols="5" rowHeight="1:1" gutterSize="25px")
             mat-grid-tile(class="image_wrapper"  *ngFor="let actor of reparto.getActores()" [style.backgroundImage]="makeTrustedImage(actor.getFoto()?.imagen)")
                 img([src]="actor.getFoto()?.imagen")
@@ -14,10 +15,9 @@ video#vid1( *ngIf="url"
                 mat-grid-tile-footer
                     p {{actor.getNombre()}}
 
-//- #produccion
-//-     .actores(*ngIf="produccion")
-//-         mat-grid-list(cols="5" rowHeight="1:1" gutterSize="25px")
-//-             mat-grid-tile(class="image_wrapper"  *ngFor="let actor of reparto.getActores()")
-//-                 .img([style.backgroundImage]="actor.getFoto()?.imagen")
-//-                 mat-grid-tile-footer
-//-                     p {{actor.getNombre()}}                    
+#produccion
+    .actores(*ngIf="produccion")
+        h2 De trás de cámaras
+        mat-grid-list(cols="5" rowHeight="1:1" gutterSize="25px")
+            mat-grid-tile(class="image_wrapper"  *ngFor="let imagen of produccion?.getImagenes()")
+                img([src]="imagen?.imagen")

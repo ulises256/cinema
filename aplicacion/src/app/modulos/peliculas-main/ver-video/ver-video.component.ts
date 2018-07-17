@@ -13,10 +13,12 @@ export class VerVideoComponent implements OnInit {
     @Output() selected = new EventEmitter();
 
     pausa = false;
+    repartoOrProduccion = true;
     constructor(private sanitizer: DomSanitizer) { }
     eventClick(item) {
         this.selected.emit(item)
     }
+
     URL() {
 		return this.sanitizer.bypassSecurityTrustResourceUrl(this.pelicula.getVideo());
 	}

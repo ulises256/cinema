@@ -34,11 +34,7 @@ export class AnadirActorComponent implements OnInit {
 			this.data.setNombre(form.controls.nombre.value)
 			this.data.setApellidos(form.controls.apellidos.value)
 			this.data.setBiblio(form.controls.biblio.value)
-			console.log(this.data)
 			this.dialogRef.close(this.data)
-		}
-		else{
-			console.log('nada valido')
 		}
 	}
 

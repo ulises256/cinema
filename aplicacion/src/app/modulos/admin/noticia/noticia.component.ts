@@ -24,7 +24,6 @@ export class NoticiaComponent implements OnInit {
 	}
 
 	eliminar(idNoticia) {
-		console.log(idNoticia)
 		const dialogRef = this.dialog.open(ConfirmDelDialogComponent, {
             width: '290px',
             height: '200px'
@@ -42,7 +41,6 @@ export class NoticiaComponent implements OnInit {
 	ngOnInit() {
 		NoticiaService.obtenerNoticias()
 		.then(response => this.noticias = response.data.map(n => new Noticia(n.id, n.titulo, n.descripcion, n.status)))
-		.then(n => console.log(n))
 	}
 
 }

@@ -51,7 +51,6 @@ export class HomeComponent implements OnInit {
 	}
 
 	anterior() {
-		console.log(this.paginacion)
 		this.paginacion.pagina==0? null : (this.paginacion.pagina--, this.paginar()) ;
 	}
 

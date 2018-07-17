@@ -27,8 +27,6 @@ export class ReservaComponent implements OnInit {
   }
 
   ngOnInit() {
-/*     this.precio = this.data.getPrecioActual(new Date);
-    console.log(this.precio) */
     this.form = this.formBuilder.group({
       nombre: ['', [Validators.required]],
       apellidos: ['', [Validators.required]],

@@ -54,7 +54,6 @@ export class LoginComponent implements OnInit {
 		})
 
 		this.route.params.subscribe(params => {
-			console.log(params)
 			params.token? this.auth.loginFacebook(params.token).then(res => {
 				res != false ?
 				this.router.navigate(['/user']) : this.router.navigate(['/'])
