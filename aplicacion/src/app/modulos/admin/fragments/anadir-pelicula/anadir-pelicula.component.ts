@@ -26,16 +26,16 @@ export class AnadirPeliculaComponent implements OnInit {
 	submit(form: FormGroup) {
 		console.log(form)
 		if (form.controls.nombre.valid &&
-			form.controls.video.valid
+			form.controls.video.valid &&
+			form.controls.historia.valid
 		) {
 			var formData = new FormData();
 			this.showSpinner = true;
-			formData.append('file_video', this.fileVideo, this.fileVideo.name);
-			formData.append('nombre', form.controls.nombre.value);
-			formData.append('historia', form.controls.historia.value);
+			this.data.setVideo(form.controls.video.value);
+			this.data.setNombre(form.controls.nombre.value);
+			this.data.setHistoria(form.controls.historia.value);
 			console.log(formData)
-			var options = { content: formData };
-			this.dialogRef.close(options)
+			this.dialogRef.close(this.data)
 		}
 	}
 

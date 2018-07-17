@@ -1,9 +1,5 @@
-video(
-        id="pelicula"
-        class="video-js vjs-default-skin vjs-big-play-centered vjs-16-9"
-        controls
-        preload="auto" 
-        width="640"
-        height="264"
-    )
-    source([src]="url" type="video/mp4") 
+video#vid1( *ngIf="url"
+            class="pelicula video-js vjs-default-skin"
+            controls
+            width='640'
+            height='264')

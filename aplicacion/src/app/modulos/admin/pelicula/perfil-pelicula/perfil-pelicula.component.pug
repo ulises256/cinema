@@ -8,7 +8,7 @@
                     mat-icon {{editable.icon}}
             .info
                 .video
-                    iframe(*ngIf="pelicula" [src]="URL()" width="500" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen)
+                    videojs(*ngIf="pelicula" [url]="URL()" [autoplay]="true")
                 .detalles(*ngIf="pelicula")
                     mat-form-field(class="input-layout")
                         input(
@@ -29,6 +29,15 @@
                                 autocomplete="off"
                                 rows="15"
                                 required)
+                    mat-form-field(class="input-layout")
+                        input(
+                                [disabled]="editable.disiabled"
+                                matInput name="nombre"
+                                placeholder="Link del video"
+                                [ngModel]="pelicula.getVideo()"
+                                (ngModelChange)="pelicula.setVideo($event)"
+                                autocomplete="off" 
+                                required)                                
             .portadas
                 h2 Portadas de la película
                 .file(*ngIf="pelicula?.getPortadas()?.length < 2")

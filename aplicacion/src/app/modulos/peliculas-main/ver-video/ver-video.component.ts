@@ -16,7 +16,7 @@ export class VerVideoComponent implements OnInit {
         this.selected.emit(item)
     }
     URL() {
-		return this.sanitizer.bypassSecurityTrustResourceUrl(this.pelicula.getVideo() + '?byline=0&amp;portrait=0');
+		return this.sanitizer.bypassSecurityTrustResourceUrl(this.pelicula.getVideo());
 	}
     ngOnInit() {
     }

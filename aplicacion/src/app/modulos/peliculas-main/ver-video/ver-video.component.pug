@@ -16,4 +16,4 @@
                         a(mat-raised-button color="primary" (click)="eventClick(3)").verpeli Reparto                                                
 
             .embed-container
-                iframe(*ngIf="pelicula.getVideo()" [src]="URL()" width="500" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen)
+                videojs(*ngIf="pelicula" [url]="URL()")

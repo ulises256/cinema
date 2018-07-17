@@ -63,59 +63,19 @@ guardarvideo = function (uri, path) {
 
 
 ex.create = function (req, res, next) {
-    var form = new formidable.IncomingForm();
-    console.log(form)
-    form.multiples = true;
-    form.keepExtensions = true;
-    form.uploadDir = uploadDir;
-    console.log(form)
-    form.parse(req, (err, fields, files) => {
-        console.log(fields)
-        if (err) { return res.status(500).json({ error: err }) }
-        else {
-            clientevimeo.upload(
-                files.file_video.path,
-                {
-                    "name": fields.nombre,
-                    "description": fields.historia,
-                },
-                function (uri) {
-                    console.log('File upload completed. Your Vimeo URI is:', uri)
-                    res.status(200).json({ uploaded: uri });
-                    guardarvideo(uri, files.file_video.path);
-                },
-                function (bytesUploaded, bytesTotal) {
-                    var percentage = (bytesUploaded / bytesTotal * 100).toFixed(2)
-                    console.log(bytesUploaded, bytesTotal, percentage + '%')
-                    porcentaje = percentage;
-                },
-                function (error) {
-                    console.log(error)
-                    return res.status(500).json({ error: err })
-                }
-            );
-        }
-    });
 
-    const archivo = () => {
-        return new Promise((resolve, reject) => {
-            form.on('fileBegin', function (name, file) {
-                const [fileName, fileExt] = file.name.split('.');
-                file.path = path.join(uploadDir, `${fileName}_${new Date().getTime()}.${fileExt}`);
-                resolve(file.path)
-            })
-        })
+    let video = {
+        nombre: req.body.nombre,
+        historia: req.body.historia,
+        link: req.body.videoId,
+        iframe: '//player.vimeo.com/video/' + req.body.videoId.substr(18),
+        uri: '/videos/' + req.body.videoId.substr(18)
     }
 
-}
-
-
-ex.update = function (req, res, next) {
-    var idVmeo = req.params.idVmeo;
-    var opinion = req.body;
+    pelicula.create(video)
+    .then(response => res.status(200).jsonp(response));
 
 }
-
 
 
 ex.picturesVideos = function (req, res, next) {
@@ -169,44 +129,38 @@ ex.picturesVideos = function (req, res, next) {
 // }
 
 ex.delete = (req, res, next) => pelicula.findById(req.params.id)
-    .then(peli => {
-        peli ?     clientevimeo.request(/*options*/{
-            // This is the path for the videos contained within the staff picks
-            // channels
-            method: 'DELETE',
-            path: peli.uri,
-            // This adds the parameters to request page two, and 10 items per
-            // page
-            query: {
-                fields: 'uri,name,description,duration,link'
-            }
-        }, function (error, body, status_code, headers) {
-            if (error) {
-                console.log(error);
-            } else {
-              return peli;
-            }
-        }) : null
-    })
+    // .then(peli => {
+    //     peli ?     clientevimeo.request(/*options*/{
+    //         // This is the path for the videos contained within the staff picks
+    //         // channels
+    //         method: 'DELETE',
+    //         path: peli.uri,
+    //         // This adds the parameters to request page two, and 10 items per
+    //         // page
+    //         query: {
+    //             fields: 'uri,name,description,duration,link'
+    //         }
+    //     }, function (error, body, status_code, headers) {
+    //         if (error) {
+    //             console.log(error);
+    //         } else {
+    //           return peli;
+    //         }
+    //     }) : null
+    // })
     .then(pelicula => pelicula? pelicula.destroy() : console.log(pelicula))
     .then(response => res.status(200).jsonp(response));
 
-ex.update = (req, res, next) => {
-    upload(req, res, function (err) {
-        if (req.file) {
-            if (err)
-                return res.status(500).jsonp({ err: 'Error al subir el video: ' + err });
-            pelicula.findById(req.params.id)
-                .then(async peli => {
-                    await unlinkAsync(peli.videoPath)
-                    await peli.update({ nombre: req.body.nombre, historia: req.body.historia, videoLink: req.file.path })
-                        .then(response => res.status(200).jsonp(response))
-                });
-        } else {
-            pelicula.update(req.body, { where: { id: req.params.id } })
-                .then(response => res.status(200).jsonp(response));
-        }
-    });
+ex.update = (req, res, next) =>{
+       let video = {
+        nombre: req.body.nombre,
+        historia: req.body.historia,
+        link: req.body.videoId,
+        iframe: '//player.vimeo.com/video/' + req.body.videoId.substr(18),
+        uri: '/videos/' + req.body.videoId.substr(18)
+    }
+
+    pelicula.update(video, { where: { id: req.params.id } }).then(response => res.status(200).jsonp(response));
 }
 
 

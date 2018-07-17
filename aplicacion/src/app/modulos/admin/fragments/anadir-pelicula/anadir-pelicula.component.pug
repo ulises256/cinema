@@ -4,8 +4,8 @@ form( class="contenedor" [formGroup]="form" (ngSubmit)="submit(form)" enctype="m
 			input(matInput formControlName="nombre" placeholder="Nombre de la Pelicua" required)
 		mat-form-field(class="input-layout")
 			textarea(matInput  formControlName="historia" placeholder="Descripciòn" rows="10" )
-		input( type="file" (change)="changeListener($event)" formControlName="video" placeholder="Nombre del proyecto" required)
-		mat-error(*ngIf="form.controls.video.invalid") Selecione el archivo de la pelicula!
+		mat-form-field(class="input-layout")
+			input(matInput type="text" formControlName="video" placeholder="Link de la pelicula" required)
 	mat-dialog-actions.botones
 		button(mat-button type="button" (click)="cancelar()") Cancelar
 			mat-icon cancel

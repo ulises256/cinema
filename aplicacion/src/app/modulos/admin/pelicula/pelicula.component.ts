@@ -28,7 +28,7 @@ export class PeliculaComponent implements OnInit {
 
         dialogRef.afterClosed().subscribe(result => {
             console.log(result)
-            result ?  (PeliculaService.crearPelicula(result.content)
+            result ?  (PeliculaService.crearPelicula(result)
                         .then(responde => this._router.navigate(['admin/peliculas/' + responde.data.id]))): null
         });
 	}
