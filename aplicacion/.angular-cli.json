@@ -36,8 +36,6 @@
         "../node_modules/croppie/croppie.js",
         "../node_modules/c3/c3.min.js",
         "../node_modules/d3",
-        "./assets/videojs-vimeo-master/dist/videojs-vimeo.js",
-        "../node_modules/videojs-vimeo/src/Vimeo.js",
         "../node_modules/dropify/dist/js/dropify.min.js"
       ],
       "environmentSource": "environments/environment.ts",

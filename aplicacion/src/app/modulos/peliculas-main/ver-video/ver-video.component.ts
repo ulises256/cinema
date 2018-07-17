@@ -11,6 +11,8 @@ import { DomSanitizer } from '../../../../../node_modules/@angular/platform-brow
 export class VerVideoComponent implements OnInit {
     @Input() pelicula: Pelicula;
     @Output() selected = new EventEmitter();
+
+    pausa = false;
     constructor(private sanitizer: DomSanitizer) { }
     eventClick(item) {
         this.selected.emit(item)

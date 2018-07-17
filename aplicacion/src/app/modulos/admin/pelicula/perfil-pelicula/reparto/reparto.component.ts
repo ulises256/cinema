@@ -26,6 +26,7 @@ export class RepartoComponent implements OnInit {
         });
 
         dialogRef.afterClosed().subscribe((result: Actor) => {
+			console.log(result)
 			result ? this.reparto.setActores(result) : null;
         });
 	}
