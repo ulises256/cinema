@@ -10,9 +10,4 @@
             form([formGroup]="form" (ngSubmit)="login(form)" novalidate).formulario
                 mat-form-field(class="input-layout").input-layout
                     input(matInput formControlName="titlo" placeholder="Titulo de la noticia" autocomplete="off" required)
-            quill-editor([(ngModel)]="editorContent"
-                        [options]="editorOptions"
-                        (blur)="onEditorBlured($event)"
-                        (focus)="onEditorFocused($event)"
-                        (ready)="onEditorCreated($event)"
-                        (change)="onContentChanged($event)")
+                textarea([froalaEditor] formControlName="descripcion")

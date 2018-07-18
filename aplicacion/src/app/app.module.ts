@@ -16,6 +16,7 @@ import {AppRoutingModule} from './app.routers';
 import { MainModule } from './modulos/main/main.module';
 import { AdminModule } from './modulos/admin/admin.module';
 import { PeliculasMainModule } from './modulos/peliculas-main/peliculas-main.module';
+import { FroalaEditorModule, FroalaViewModule } from '../../node_modules/angular-froala-wysiwyg';
 
 
 
@@ -44,6 +45,7 @@ import { PeliculasMainModule } from './modulos/peliculas-main/peliculas-main.mod
         secondaryColour: '#b7d7e8',
         tertiaryColour: '#cfe0e8'
     }),
+    FroalaEditorModule.forRoot(), FroalaViewModule.forRoot()
   ],
   exports: [],
   providers: [],

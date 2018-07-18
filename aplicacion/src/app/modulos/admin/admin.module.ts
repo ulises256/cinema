@@ -21,6 +21,7 @@ import { ProduccionComponent } from './pelicula/perfil-pelicula/produccion/produ
 import { EditarNoticiaComponent } from './noticia/editar-noticia/editar-noticia.component';
 import { AnadirProyectoDialog } from './fragments/anadir-proyecto-dialog/anadir-proyecto-dialog.component';
 import { ConfirmDelDialogComponent } from './fragments/confirm-del-dialog/confirm-del-dialog.component'
+import { FroalaEditorModule, FroalaViewModule } from '../../../../node_modules/angular-froala-wysiwyg';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { ConfirmDelDialogComponent } from './fragments/confirm-del-dialog/confir
     MaterialModule,
     AgmCoreModule,
     ExtrasModule,
-    QuillEditorModule
+    QuillEditorModule,
+    FroalaEditorModule, FroalaViewModule
   ],
   exports: [],
   entryComponents: [
