@@ -7,7 +7,9 @@ animation(animation, duration = 1s, delay = 0s)
     transition all duration ease-in-out !important
     -webkit-transition-delay delay ease-in-out !important
     transition-delay delay ease-in-out !important
-
+mobile1250 = 'only screen and (max-width: 1250px)'
+mobile766 = 'only screen and (max-width: 766px)'
+mobile410 = 'only screen and (max-width: 430px)'
 
 main
     width 100%
@@ -84,6 +86,8 @@ main
         height 100%
     .footer
         display flex
+        @media mobile410
+            flex-direction column
         background-color black
         width 100%
         z-index 2
@@ -99,6 +103,8 @@ main
             color white
             flex 3
         .separator
+            @media mobile766
+                display none
             flex 7
         .iconos-sociales
             flex 3

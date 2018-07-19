@@ -17,7 +17,7 @@
                 .pelis
                     button(mat-icon-button (click)="anterior()")
                         mat-icon keyboard_arrow_left
-                    mat-grid-list(cols="3" rowHeight="200px" gutterSize="10px" ) 
+                    mat-grid-list(cols="3"  gutterSize="10px" ) 
                         mat-grid-tile(*ngFor="let peli of peliculas" [style.backgroundImage]="peli.getPortadas() ? makeTrustedImage(peli.getPortadas()[0].imagen) : null" (click)="verProyecto(peli.getId())")
                             mat-grid-tile-footer
                                 p {{peli.getNombre()}}
