@@ -50,6 +50,12 @@ router.get("/user/:token", function(req, res) {
     res.render("index.html");
 })
 
+router.get("/pelicula/:id", function(req, res) {
+    res.render("index.html");
+})
+
+
+
 /* router.get("/user/:url", function(req, res) {
     var page = req.params.url
     res.render("user/frags/" + page);

@@ -5,8 +5,38 @@
     width 100%
     height 100%
     .reparto-content
+        flex-direction column
+        justify-content flex-start
+        margin-left 100px
+        margin-right 100px
         width 100%
-        height 100%
-        margin 5px 5px 5px 5px
         .titulo
-            margin 10px 50px 10px 50px
+            color white
+            .line-white
+                position absolute
+                background-color white
+                width 250px
+                opacity 0.5
+        .actores
+            display flex
+            flex-direction column
+            justify-content center
+            color white
+            .perfil
+                display grid
+                grid-gap 50px
+                grid-template-columns 250px 2fr //indica que es de una columna de 100% de anccho
+                grid-template-rows 250px //indica qie son 3 filas
+                margin 10px 5px 10px 5px
+                .foto
+                    img 
+                        width 100%
+                        height 100%
+                .bliblio
+                    display flex
+                    flex-direction column
+
+
+                                        
+
+

@@ -1,5 +1,11 @@
 
 .galeria
     .galeria-content
-        mat-card.titulo
-            h1 Galeria Component Works
+        .titulo
+            div(class="line-white" id="lineLeft")
+            h2 Producción
+            div(class="line-white" id="lineRight")
+        .imagenes(*ngIf="pelicula?.getProduccion()")
+            mat-grid-list(cols="5" rowHeight="1:1" gutterSize="25px")
+                mat-grid-tile(class="image_wrapper"  *ngFor="let imagen of pelicula.getProduccion().getImagenes()")
+                    img([src]="imagen?.imagen")

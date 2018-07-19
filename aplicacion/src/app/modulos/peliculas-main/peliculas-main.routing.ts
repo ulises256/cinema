@@ -13,29 +13,29 @@ const routes: Routes = [
   { 
     path: ':id',
     component: PeliculasMainComponent,
-    canActivate: [AuthGuard]
-    // children: [
-    //   {
-    //     path:'',
-    //     component: HomePeliculaComponent
-    //   },
-    //   {
-    //     path:'ver',
-    //     component: VerVideoComponent
-    //   },
-    //   {
-    //     path:'historia',
-    //     component: HistoriaComponent
-    //   },
-    //   {
-    //     path:'galeria',
-    //     component: GaleriaComponent
-    //   },
-    //   {
-    //     path:'reparto',
-    //     component: RepartoComponent
-    //   },
-    // ]
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path:'',
+        component: HomePeliculaComponent
+      },
+      {
+        path:'ver',
+        component: VerVideoComponent
+      },
+      {
+        path:'historia',
+        component: HistoriaComponent
+      },
+      {
+        path:'galeria',
+        component: GaleriaComponent
+      },
+      {
+        path:'reparto',
+        component: RepartoComponent
+      },
+    ]
   },
 ];
 

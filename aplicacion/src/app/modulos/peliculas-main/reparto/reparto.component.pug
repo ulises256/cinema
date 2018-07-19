@@ -1,5 +1,23 @@
 
 .reparto
     .reparto-content
-        mat-card.titulo
-            h1 Reparto Component Works
+        .titulo
+            div(class="line-white" id="lineLeft")
+            h1 Producción
+            div(class="line-white" id="lineRight")
+        .actores(*ngIf="pelicula")
+            //- mat-grid-list(cols="5" rowHeight="1:1" gutterSize="25px")
+            //-     mat-grid-tile(class="image_wrapper"  )
+            //-         
+            //-         //- .img([style.backgroundImage]="actor.getFoto()?.imagen")
+            //-         mat-grid-tile-footer
+            //-             p {{actor.getNombre()}}
+            .perfil(*ngFor="let actor of pelicula?.getReparto()?.getActores()")
+                .foto
+                    img([src]="actor.getFoto()?.imagen")
+                .bliblio
+                    .nombre
+                        h2 {{actor.getNombre()}}
+                        h4 {{actor.getApellidos()}}
+                    .descripcion
+                        p {{actor.getBiblio()}}

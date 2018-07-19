@@ -23,11 +23,9 @@ app.use(function(req, res, next) {
     next();
 });
 
-
 //- Rutas
 
 var routes = require('./http/routes');
-
 
 var usuario = require('./http/routes/Usuario');
 var Actor = require('./http/routes/Actor');
@@ -37,8 +35,6 @@ var Pelicula = require('./http/routes/Pelicula');
 var Portada = require('./http/routes/Portada');
 var Reparto = require('./http/routes/Reparto');
 var Produccion = require('./http/routes/Produccion');
-
-
 
 // - Conexion a la base de datos
 //
@@ -53,12 +49,7 @@ app.engine('html', cons.swig)
 app.set('views', path.join(__dirname, '/aplicacion/dist/'));
 app.set("view engine", "html");
 
-/* app.set('views', path.join(__dirname, 'views'));
-app.set("view engine", "jade"); */
-
-
 app.use(favicon(path.join(__dirname, '/aplicacion/dist/', 'favicon.ico')))
-/* app.use(favicon(path.join(__dirname, 'assets', 'favicon.ico'))) */
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 app.use(cookieParser());
@@ -83,14 +74,11 @@ app.use('/', Portada);
 app.use('/', Produccion);
 
 
+
 app.use(lessMiddleware(__dirname + '/aplicacion/dist/'));
 
 app.use(express.static(path.join(__dirname, 'aplicacion/dist/')));
 
-/* app.use(lessMiddleware(__dirname + '/assets'));
-app.use(lessMiddleware(__dirname + '/assets/frags'));
-
-app.use(express.static(path.join(__dirname, 'assets'))); */
 app.use(express.static(path.join(__dirname, 'http')));
 
 module.exports = app;

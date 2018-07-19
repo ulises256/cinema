@@ -12,7 +12,7 @@ export class Pelicula {
     private reparto: Reparto;
     private pruduccion: Produccion;
     private portadas: Imagen[];
-    constructor(id: number, nombre: string, historia: string, video: string, estreno, bandera?) {
+    constructor(id: number, nombre: string, historia: string, video: string, estreno: string, bandera?) {
         this.id = id;
         this.nombre = nombre;
         this.historia = historia;

@@ -1,9 +1,11 @@
 
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Pelicula } from '../../../models';
 import { TimelineLite, TweenMax } from 'gsap';
 import * as $ from 'jquery';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ActivatedRoute, Router } from '../../../../../node_modules/@angular/router';
+import { PeliculaService } from '../../../services';
 
 @Component({
     selector: 'app-home-pelicula',
@@ -12,13 +14,17 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class HomePeliculaComponent implements OnInit {
     
-    @Input() pelicula: Pelicula;
-    @Output() selected = new EventEmitter();
-    constructor(private domSanitizer: DomSanitizer) { 
+    pelicula: Pelicula;
+    constructor(private domSanitizer: DomSanitizer, private router: Router, private route: ActivatedRoute) { 
     }
 
     ngOnInit() {
+        this.route.parent.params.subscribe(async params => {
+            console.log(params)
+            await PeliculaService.obtenerPelicula(+params['id'])
+            .then(response => response && response.data? this.pelicula= new Pelicula(response.data.id, response.data.nombre, response.data.historia, response.data.videoId, response.data.estreno, '') : null)
 
+        });
         let tl = new TimelineLite({delay:0.5})
 		TweenMax.set('#lineLeft', {marginTop:50, marginLeft:3});
         TweenMax.set('#lineRight', {marginTop:25, marginLeft:404});
@@ -42,8 +48,17 @@ export class HomePeliculaComponent implements OnInit {
 		const style = 'url(' + imageString + ')';
 		return this.domSanitizer.bypassSecurityTrustStyle(style);
     }
-    
-    eventClick(item) {
-        this.selected.emit(item)
+
+    verGaleria() {
+        this.router.navigate(['/pelicula/' + this.pelicula.getId() + '/galeria']);
     }
+
+    verPelicula() {
+        this.router.navigate(['/pelicula/' + this.pelicula.getId() + '/ver']);
+    }
+
+    conocerLeyenda() {
+        this.router.navigate(['/pelicula/' + this.pelicula.getId() + '/historia']);
+    }
+
 }

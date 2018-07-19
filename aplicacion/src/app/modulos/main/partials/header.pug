@@ -20,7 +20,7 @@ mat-toolbar(id="menu-movil" color="primary" class="mat-elevation-z8" role="heade
             mat-icon menu
         a(mat-button  [routerLink]="['/']" [routerLinkActive]="['active-nav']").inicio
             img(src="favicon.ico")
-        a(mat-button [routerLink]="navLinks[2].path"  [routerLinkActive]="['active']" *ngIf="usuario && !usuario.getId()").user
+        a(mat-button [routerLink]="navLinks[2].path"  [routerLinkActive]="['active']" *ngIf="!usuario").user
             mat-icon account_circle
         a(mat-button [mat-menu-trigger-for]="menuUser" *ngIf="usuario && usuario.getId()").user
             mat-icon account_circle            

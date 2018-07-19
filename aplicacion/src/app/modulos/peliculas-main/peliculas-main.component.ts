@@ -17,7 +17,7 @@ import { Pelicula } from '../../models';
 export class PeliculasMainComponent implements OnInit {
 	mobileQuery: MediaQueryList;
 	private _mobileQueryListener: () => void;
-	public navs = [{nombre: 'Inicio', mostrar: true}];
+	public navs = [{nombre: 'Inicio', mostrar: true, route: '/'}];
 	pelicula: Pelicula;
 	usuario: Usuario;
 
@@ -25,19 +25,20 @@ export class PeliculasMainComponent implements OnInit {
 		this.mobileQuery = media.matchMedia('(max-width: 900px)');
 		this._mobileQueryListener = () => changeDetectorRef.detectChanges();
 		this.mobileQuery.addListener(this._mobileQueryListener);
-		this.navs.push({nombre: 'Ver Pelicula', mostrar: false});
-		this.navs.push({nombre: 'Historia', mostrar: false});
-		this.navs.push({nombre: 'Reparto', mostrar: false});
-		this.navs.push({nombre: 'Producción', mostrar: false});
-		this.pelicula = new Pelicula(null, 'LA LEYENDA de la condesa de Malibrán', 'Historia chingona', null, null, '')
+		this.pelicula = new Pelicula(null, 'al parecer no cargó la película', 'ips', null, null, '')
 		 this.route.params.subscribe(async params => {
 			await PeliculaService.obtenerPelicula(+params['id'])
 			.then(res => res && res.data ? 
-									this.pelicula = new Pelicula(res.data.id, res.data.nombre, res.data.historia, res.data.iframe, res.data.estreno)
+									this.pelicula = new Pelicula(res.data.id, res.data.nombre, res.data.historia, res.data.iframe, res.data.estreno, '')
 									: 
-									// this.router.navigate([''])
-									null
-				);
+									this.router.navigate([''])
+			)
+			.then((peli: any) => {
+				this.navs.push({nombre: 'Ver Pelicula', mostrar: false, route:'/pelicula/'+peli.getId()+ '/ver'});
+				this.navs.push({nombre: 'Historia', mostrar: false, route:'/pelicula/'+peli.getId()+  '/historia'});
+				this.navs.push({nombre: 'Reparto', mostrar: false, route:'/pelicula/'+peli.getId()+  '/reparto'});
+				this.navs.push({nombre: 'Producción', mostrar: false, route:'/pelicula/'+peli.getId()+  '/galeria'});
+			});
 		})
 	}
 

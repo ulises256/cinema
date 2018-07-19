@@ -13,7 +13,7 @@
                     .button
                         a(mat-raised-button color="primary" (click)="pausa = !pausa; repartoOrProduccion = false").verpeli Producción
                     .button
-                        a(mat-raised-button color="primary" (click)="eventClick(3)").verpeli Historia                                                
+                        a(mat-raised-button color="primary" (click)="irHistoria()").verpeli Historia                                                
 
             .embed-container
                 videojs(*ngIf="pelicula" [url]="URL()"

@@ -15,16 +15,12 @@ div(class="contenedor" [class.isMobile]="mobileQuery.matches")
     mat-sidenav-container(class="sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 50 : 0")
         mat-sidenav(#snav [mode]="'over'" [fixedInViewport]="mobileQuery.matches" [opened]="false")
             mat-nav-list
-                mat-list-item(*ngFor="let nav of navs; let i = index" (click)="snav.toggle(); mostrar(i)" )
+                mat-list-item(*ngFor="let nav of navs; let i = index" [routerLink]="nav.route" [routerLinkActive]="['active-nav']" (click)="snav.toggle()" )
                     h1 {{nav.nombre}}
 
         mat-sidenav-content
             div.contenido
-                app-home-pelicula(*ngIf="navs[0].mostrar" [pelicula]="pelicula" (selected)="mostrar($event)")
-                app-ver-video(*ngIf="navs[1].mostrar" [pelicula]="pelicula" (selected)="mostrar($event)")
-                app-historia(*ngIf="navs[2].mostrar")
-                app-reparto(*ngIf="navs[3].mostrar")                
-                app-galeria(*ngIf="navs[4].mostrar")
+                router-outlet
     .footer(color="primary")
         .derechos
             p 2018 Universidad de las Naciones
