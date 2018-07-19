@@ -1,28 +1,27 @@
 // .input-layout
 //     width: 100%;
 //     flex: 1 1 auto;
-mobile = '@media only screen and (max-width: 1250px)'
+mobile = 'only screen and (max-width: 1250px)'
 
 funcion1()
-    -webkit-transition all 0.30s ease-in-out
-    -moz-transition all 0.30s ease-in-out
-    -ms-transition all 0.30s ease-in-out
-    -o-transition all 0.30s ease-in-out
+    // -webkit-transition all 0.30s ease-in-out
+    // -moz-transition all 0.30s ease-in-out
+    // -ms-transition all 0.30s ease-in-out
+    // -o-transition all 0.30s ease-in-out
     outline none
     box-sizing border-box
     -webkit-box-sizing: border-box
     -moz-box-sizing border-box
-    width 100%
+    width 90%
     background #fff
-    margin-bottom 2%
+    margin-bottom 1%
     border 1px solid #ccc
-    padding 2%
+    padding 1%
     color #555
-    font 20px Arial, Helvetica, sans-serif
+    font 15px Arial, Helvetica, sans-serif
 
 funcion2()
     box-shadow 0 0 5px #78909C
-    padding 3%
     border 1px solid #78909C
 
 
@@ -50,35 +49,35 @@ funcion2()
         width 100%
         height 100%
         flex-direction row
-        .fantasma
-            @media only screen and (max-width: 1250px)
-                flex 0.5
-            @media only screen and (max-width: 1104px)
-                display none
-            margin 20px 20px 20px 20px
-            flex 0.5
         .form
             flex 1
             margin 20px 20px 20px 20px
             display flex
+            @media mobile 
+                justify-content center
+                width 90%            
             justify-content flex-end
+            width 100%
+            height 100%
             mat-tab-group
-                @media only screen and (max-width: 1258px)
-                    width 90%
-                width 80%
+                @media mobile
+                    justify-content center
+                    width 100%              
+                width 60%
             .formulario
                 display flex
                 flex-direction column
                 justify-content center
                 font 20px Arial, Helvetica, sans-serif
-                max-width 100%
                 margin 10px auto
                 padding 16px
                 background-color transparent
                 label
                     color #616161
-                    font-size 24px
+                    font-size 18px
                 .contenido
+                    display flex
+                    flex-direction column
                     width 100%
                 .contenido input[type="text"],
                 .contenido input[type="password"]
@@ -89,25 +88,30 @@ funcion2()
                 .social-botones
                     display flex
                     flex-direction row
-                    width 100%
-                    margin 10px 0px 10px 0px
+                    @media mobile 
+                        flex-direction column                   
+                    width 90%
+                    margin 10px 0px 10px 0px                    
                     .botones
                         display flex
                         flex-direction column
                         height 100%
                         flex 1
-                        margin 10px 10px 10px 10px 
+                        margin 10px 10px 10px 10px
+                        fo
                         button
                             display flex
                             justify-content center
                             width 100%
                             height 100%
                             span
-                                font-size 24px
+                                font-size 18px
                                 margin 10px 10px 10px 10px 
                     .fb
                         -moz-user-select none
                         background black
+                        @media mobile 
+                            background-color transparent                        
                         display flex
                         justify-content center
                         align-items center
@@ -117,7 +121,7 @@ funcion2()
                         color white
                         padding 3px 5px
                         text-shadow 0 -1px 0 gray
-                        font 24px Verdana, sans-serif
+                        font 18px Verdana, sans-serif
                         flex 1
                         img
                             width 24px

@@ -1,18 +1,16 @@
 .login
 	.titulo
 		h1 Bienvenido
-		.fantasma
 	.formulas
-		.fantasma
 		.form
 			mat-tab-group
 				mat-tab(label="Inicia sesión")
 					form([formGroup]="loginForm" (ngSubmit)="login(loginForm)" novalidate).formulario
 						.contenido
 							label(for="field1") Dirección de Correo Electronico
-							input(type="text" class="field1" id="field1" formControlName="usuario" name="correo" autocomplete="off" required).input-layout
+							input(type="text" class="field1" id="field1" formControlName="usuario" name="correo" autocomplete="off" required)
 							label(for="field2") Contraseña
-							input(class="field2" id="field2" type="password" formControlName="contra" name="contra" autocomplete="off" required).input-layout
+							input(class="field2" id="field2" type="password" formControlName="contra" name="contra" autocomplete="off" required)
 						mat-error(*ngIf="inicioIncorecto") Usuario o contraseña incorrecto
 						.social-botones
 							.botones
@@ -27,7 +25,7 @@
 						.contenido
 							label(for="field1") Dirección de Correo Electronico
 							input(matInput id="field1" type="text" formControlName="correo" autocomplete="off" required)
-							label(for="field2") Escribe una contraseña
+							label(for="field2") Contraseña
 							input(matInput id="field2" type="password" formControlName="contrasena" autocomplete="off" required)
 							label(for="field3") Confirme su contraseña
 							input(matInput id="field3" type="password" formControlName="repeatContra" autocomplete="off" required)
