@@ -20,4 +20,5 @@
                         [reparto]="repartoOrProduccion ? pelicula?.getReparto() : null"
                         [produccion]="repartoOrProduccion ? null : pelicula?.getProduccion()"
                         [autoplay]="pausa"
-                        [parar]="pausa")
+                        [parar]="pausa"
+                        oncontextmenu='return false' onkeydown='return false')

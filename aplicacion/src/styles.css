@@ -1,4 +1,9 @@
 @import '_mat-theme.css';
+@font-face {
+  font-family: Book;
+  font-weight: 400;
+  src: url("/assets/fonts/BookAntiqua.ttf");
+}
 body {
   margin: 0px;
 }

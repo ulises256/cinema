@@ -1,6 +1,10 @@
 mobile-1250 = '@media only screen and (max-width: 1250px)'
 mobile766 = 'only screen and (max-width: 766px)'
 mobile410 = 'only screen and (max-width: 414px)'
+@font-face
+    font-family Book
+    font-weight 400
+    src url(/assets/fonts/BookAntiqua.ttf)
 
 .home
     display flex
@@ -47,6 +51,7 @@ mobile410 = 'only screen and (max-width: 414px)'
                                 width 90%
                                 align-items center
                             h1
+                                font-family: Book
                                 @media mobile766
                                     font-size 60px
                                 @media mobile410
@@ -54,6 +59,7 @@ mobile410 = 'only screen and (max-width: 414px)'
                                 font-size 100px
                                 height 10px
                             p
+                                font-family: Book
                                 @media mobile766
                                     font-size 34px
                                 @media mobile410
