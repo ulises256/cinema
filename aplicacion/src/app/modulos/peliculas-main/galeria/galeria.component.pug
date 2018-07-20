@@ -6,6 +6,6 @@
             h2 Producción
             div(class="line-white" id="lineRight")
         .imagenes(*ngIf="pelicula?.getProduccion()")
-            mat-grid-list(cols="5" rowHeight="1:1" gutterSize="25px")
+            mat-grid-list(cols="3" rowHeight="1:1" gutterSize="25px")
                 mat-grid-tile(class="image_wrapper"  *ngFor="let imagen of pelicula.getProduccion().getImagenes()")
                     img([src]="imagen?.imagen")

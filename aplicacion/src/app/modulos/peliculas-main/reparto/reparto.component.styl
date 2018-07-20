@@ -1,3 +1,5 @@
+mobile766 = 'only screen and (max-width: 766px)'
+mobile410 = 'only screen and (max-width: 414px)'
 
 .reparto
     display flex
@@ -23,6 +25,11 @@
             justify-content center
             color white
             .perfil
+                @media mobile766
+                    display flex
+                    flex-direction column
+                    justify-content center
+                    align-items center
                 display grid
                 grid-gap 50px
                 grid-template-columns 250px 2fr //indica que es de una columna de 100% de anccho

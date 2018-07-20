@@ -1,3 +1,5 @@
+mobile766 = 'only screen and (max-width: 766px)'
+mobile410 = 'only screen and (max-width: 414px)'
 
 .ver-video
     display flex
@@ -13,6 +15,11 @@
         margin 5px 5px 5px 5px
         .info
             display grid
+            @media mobile766
+                display flex
+                flex-direction column
+                justify-content center
+                align-items center
             width 90%
             grid-gap 10px
             grid-template-columns 1fr 1fr
@@ -25,6 +32,9 @@
                 margin-right 10px
                 border-right 1px solid white
                 .bienvenido
+                    @media mobile766
+                        h3
+                            display none
                     display flex
                     flex-direction column
                     justify-content center
@@ -48,4 +58,6 @@
                 overflow hidden
                 max-width 100%
                 height auto
+                @media mobile766
+                    width 100%
 

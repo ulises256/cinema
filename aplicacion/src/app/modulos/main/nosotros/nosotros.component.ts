@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./nosotros.component.styl']
 })
 export class NosotrosComponent implements OnInit {
-    
+    img1 = "/assets/images/imagen1"
+    img2 = "/assets/images/imagen2"
     constructor() { }
 
     ngOnInit() {

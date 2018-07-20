@@ -17,13 +17,26 @@
         top 0px
         left 0px
 
-#reparto       
-    mat-grid-list
-        mat-grid-tile
-            img
-                height 100%
-                width 100%
-
+#reparto
+    width 100%
+    height 100%
+    display flex
+    flex-direction row
+    .actores
+        width 100%
+        height 100%
+        display flex
+        justify-content center
+        align-items center
+        drag-scroll
+            width 60%
+            height 60%
+        .slide
+            height 100%
+            width 100%
+            background-position center
+            background-repeat no-repeat
+            background-size cover            
 #produccion       
     mat-grid-list
         mat-grid-tile

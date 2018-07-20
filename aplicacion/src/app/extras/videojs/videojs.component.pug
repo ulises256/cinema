@@ -7,14 +7,22 @@ video#vid1( *ngIf="url"
 
 #reparto
     .actores(*ngIf="reparto")
-        h2 Reparto de la pelicula
-        mat-grid-list(cols="5" rowHeight="1:1" gutterSize="25px")
-            mat-grid-tile(class="image_wrapper"  *ngFor="let actor of reparto.getActores()" [style.backgroundImage]="makeTrustedImage(actor.getFoto()?.imagen)")
-                img([src]="actor.getFoto()?.imagen")
-                //- .img([style.backgroundImage]="actor.getFoto()?.imagen")
-                mat-grid-tile-footer
-                    p {{actor.getNombre()}}
-
+        //- ngx-slick(class="carousel" #slickModal="slick-modal" [config]="slideConfig" (afterChange)="afterChange($event)")
+        //-     div(ngxSlickItem *ngFor="let actor of reparto.getActores()"  class="slide" [style.backgroundImage]="makeTrustedImage(actor.getFoto()?.imagen)")
+        //-         p {{actor.getNombre()}}
+        //- mat-grid-list(cols="5" rowHeight="1:1" gutterSize="25px")
+        //-     mat-grid-tile(class="image_wrapper"  *ngFor="let actor of reparto.getActores()" [style.backgroundImage]="makeTrustedImage(actor.getFoto()?.imagen)")
+        //-         img([src]="actor.getFoto()?.imagen")
+        //-         //- .img([style.backgroundImage]="actor.getFoto()?.imagen")
+        //-         mat-grid-tile-footer
+        //-             p {{actor.getNombre()}}
+        button(mat-icon-button (click)="moveLeft()")
+            mat-icon keyboard_arrow_left
+        drag-scroll([drag-scroll-disabled]="true" #actor)
+            div(drag-scroll-item *ngFor="let actor of reparto.getActores()"  class="slide" [style.backgroundImage]="makeTrustedImage(actor.getFoto()?.imagen)")
+                p {{actor.getNombre()}}
+        button(mat-icon-button (click)="moveRight()")
+            mat-icon keyboard_arrow_right
 #produccion
     .actores(*ngIf="produccion")
         h2 De trás de cámaras

@@ -12,6 +12,7 @@ import {
 } from '@angular/core';
 import { Reparto, Produccion } from '../../models';
 import { DomSanitizer } from '../../../../node_modules/@angular/platform-browser';
+import { DragScrollComponent } from 'ngx-drag-scroll/lib';
 
 
 @Component({
@@ -37,7 +38,7 @@ export class VideoJSComponent implements OnInit, OnDestroy, AfterViewInit, OnCha
 	@Input() reparto: Reparto[];
 
 	@Input() parar: boolean = false
-
+	@ViewChild('actor', {read: DragScrollComponent}) ds: DragScrollComponent;
 	repart: any;
 	producc: any;
 
@@ -46,6 +47,20 @@ export class VideoJSComponent implements OnInit, OnDestroy, AfterViewInit, OnCha
 		this.url = false;
 	}
 
+	slideConfig = {"slidesToShow": 1, "slidesToScroll": 1};
+
+	moveLeft() {
+		this.ds.moveLeft();
+	  }
+	
+	  moveRight() {
+		this.ds.moveRight();
+	  }
+
+	afterChange(e) {
+		console.log('afterChange');
+	  }
+	  
 	ngOnInit() {
 	}
 

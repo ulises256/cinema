@@ -1,3 +1,6 @@
+mobile766 = 'only screen and (max-width: 766px)'
+mobile410 = 'only screen and (max-width: 414px)'
+
 .tool-bar-spacer
     flex 1 1 auto
 mat-sidenav
@@ -20,6 +23,8 @@ mat-sidenav
             align-items center
             height 10.5vh
             h1
+                @media mobile766
+                    font-size 50px
                 color white
                 font-size 100px
                 text-shadow: -5px -5px 5px #aaa;
@@ -50,6 +55,10 @@ mat-sidenav
             background-color black
             height 100%
             .home-button
+                @media mobile766
+                    flex 1
+                    h1
+                        display none
                 flex 2
                 display flex
                 margin-left 50px
@@ -62,6 +71,8 @@ mat-sidenav
                         width 100%
                         height 100%
             .busqueda
+                @media mobile766
+                    display none
                 display flex
                 justify-content center
                 align-items center
@@ -73,6 +84,8 @@ mat-sidenav
                     opacity 0.5             
                 flex 7
             .botones
+                @media mobile766
+                    flex 1
                 display flex
                 flex-direction row
                 flex 2
@@ -91,6 +104,9 @@ mat-sidenav
                         width 172px
                         height 64px
     .footer
+        @media mobile410
+            flex-direction column
+            height auto 
         display flex
         background-color black
         width 100%
@@ -107,6 +123,8 @@ mat-sidenav
             color white
             flex 3
         .separator
+            @media mobile766
+                display none        
             flex 7
         .iconos-sociales
             flex 3
@@ -137,6 +155,8 @@ mat-sidenav
 .sidenav-container
     flex 1
     height 100%
+    @media mobile766
+        height 0%
     background-color black
     .contenido
         height 100%

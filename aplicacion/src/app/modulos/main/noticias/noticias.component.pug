@@ -1,5 +1,8 @@
 
 .noticias
-    .noticias-content
-        mat-card.titulo
-            h1 Noticia
+    .noticias-content(*ngIf="noticias")
+        .noticiaa(*ngFor="let noticia of noticias")
+            .titutlo
+                p {{noticia.fecha | date}}
+                h3 {{noticia?.titulo}}
+            .noticia(*ngIf="noticia" [innerHTML]="noticia.descripcion | safeHtml")

@@ -1,3 +1,7 @@
+mobile-1250 = '@media only screen and (max-width: 1250px)'
+mobile766 = 'only screen and (max-width: 766px)'
+mobile410 = 'only screen and (max-width: 414px)'
+
 .usuario
     display flex
     width 100%
@@ -6,12 +10,16 @@
     align-items center
     background-color black
     .usuario-content
+        @media mobile410
+            width 100%
         width 75%
         height 100%
         display flex
         justify-content center
         align-items center
         .mat-card
+            @media mobile410
+                width 100%
             width 50%
             height 80%
             display grid
@@ -22,6 +30,8 @@
             margin 10px 10px 10px 10px
             .encabezado
                 display flex
+                @media mobile410
+                    flex-direction column
                 flex-direction row
                 justify-content center 
                 align-items center

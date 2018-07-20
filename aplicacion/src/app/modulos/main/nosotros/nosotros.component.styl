@@ -1,3 +1,5 @@
+mobile766 = 'only screen and (max-width: 766px)'
+mobile410 = 'only screen and (max-width: 414px)'
 
 .nosotros
     display flex
@@ -5,9 +7,38 @@
     width 100%
     height 100%
     background-color black
+    justify-content center
+    align-items center
     .nosotros-content
-        width 100%
-        height 100%
-        margin 5px 5px 5px 5px
-        .titulo
-            margin 10px 50px 10px 50px
+        display grid
+        width 90%
+        height 90%
+        @media mobile766
+            display flex
+            flex-direction column
+            justify-content center
+            align-items center
+        grid-gap 60px
+        grid-template-columns 1fr 1fr //indica que es de una columna de 100% de anccho
+        grid-template-rows 1fr 1fr //indica qie son 3 filas
+        .contenido
+            display flex
+            flex-direction column
+            justify-content flex-start
+            background-color transparent
+            color white
+            h1
+                @media mobile766
+                    font-size 50px
+                font-size 100px
+                height 10px
+            p   
+                @media mobile766
+                    font-size 15px
+                font-size 25px
+        .imagen
+            color white
+            background-position center
+            background-repeat no-repeat
+            background-size cover                
+

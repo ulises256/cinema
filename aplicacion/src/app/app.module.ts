@@ -17,6 +17,7 @@ import { MainModule } from './modulos/main/main.module';
 import { AdminModule } from './modulos/admin/admin.module';
 import { PeliculasMainModule } from './modulos/peliculas-main/peliculas-main.module';
 import { FroalaEditorModule, FroalaViewModule } from '../../node_modules/angular-froala-wysiwyg';
+import { SlickModule } from 'ngx-slick';
 
 
 
@@ -31,6 +32,7 @@ import { FroalaEditorModule, FroalaViewModule } from '../../node_modules/angular
     MaterialModule,
     ChartsModule,
     MainModule, AdminModule, PeliculasMainModule,
+    SlickModule.forRoot(),
     DndModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBMemut_EJ8vHuSf5SdmZ-R4wDBrUQWy6k',

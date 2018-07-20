@@ -11,6 +11,8 @@ import { DropifyComponent } from './extras/dropify/dropify.component';
 import { FileUploadComponent } from './extras/file-upload/file-upload.component';
 import { VideoJSComponent } from './extras/videojs/videojs.component';
 import { VimeoComponent } from './extras/vimeo/vimeo.component';
+import { SlickModule } from 'ngx-slick';
+import { DragScrollModule } from 'ngx-drag-scroll';
 
 @NgModule({
     imports: [
@@ -18,7 +20,9 @@ import { VimeoComponent } from './extras/vimeo/vimeo.component';
         MaterialModule,
         FormsModule,
         ReactiveFormsModule,
-        MaterialModule
+        MaterialModule,
+        SlickModule,
+        DragScrollModule,
     ],
     declarations: [
         SafeHtmlPipe,

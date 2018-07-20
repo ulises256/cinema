@@ -1,3 +1,5 @@
+mobile766 = 'only screen and (max-width: 766px)'
+mobile410 = 'only screen and (max-width: 414px)'
 
 .home-pelicula
     display flex
@@ -35,28 +37,40 @@
                 height 100%
                 .title
                     h1
+                        @media mobile766
+                            font-size 20px
                         font-size 100px
                         height 10px
                     p
                         font-size 54px
                     .line-white
+                        @media mobile766
+                            font-size 331px                        
                         position absolute
                         background-color white
                         width 250px
                         height 1px
                 .empezar
                     cursor pointer
+                    @media mobile766
+                        margin-top 35px
                     h3 
+                        @media mobile766
+                            font-size 20px                    
                         font-size 50px
                         height 10px
                     .line
                         position absolute
                         background-color white
+                        @media mobile766
+                            width 150px 
                         width 376px
                         height 1px
         .accesos
             display flex
             flex-direction row
+            @media mobile766
+                flex-direction column
             justify-content center
             align-content center
             width 100%
