@@ -13,9 +13,9 @@ import { PeliculaService } from '../../../services';
     styleUrls: ['./home-pelicula.component.styl']
 })
 export class HomePeliculaComponent implements OnInit {
-    
+
     pelicula: Pelicula;
-    constructor(private domSanitizer: DomSanitizer, private router: Router, private route: ActivatedRoute) { 
+    constructor(private domSanitizer: DomSanitizer, private router: Router, private route: ActivatedRoute) {
     }
 
     ngOnInit() {
@@ -25,22 +25,15 @@ export class HomePeliculaComponent implements OnInit {
             .then(response => response && response.data? this.pelicula= new Pelicula(response.data.id, response.data.nombre, response.data.historia, response.data.videoId, response.data.estreno, '') : null)
 
         });
-        let tl = new TimelineLite({delay:0.5})
-		TweenMax.set('#lineLeft', {marginTop:50, marginLeft:3});
-        TweenMax.set('#lineRight', {marginTop:25, marginLeft:404});
-        TweenMax.set('#line1', {marginTop:50, marginLeft:3});
-        TweenMax.set('#line2', {marginTop:50, marginLeft:3});
 
-		tl.addLabel("start", "");
-		tl.from("#lineLeft", 1, {scaleX:0, transformOrigin:"left"})
-        tl.from("#lineRight", 1, {scaleX:0, transformOrigin:"right"}, "start")
-        tl.from("#line1", 1, {scaleX:0, transformOrigin:"left"})
-        tl.from("#line2", 1, {scaleX:0, transformOrigin:"right"}, "start")
-        tl.from("#line", 1, {scaleX:0, transformOrigin:"right"}, "start")
+        // TweenMax.fromTo('line', {width: 0}, {width : 250});
 
-		$(".titulo").on("click", function() {
-			tl.restart();
-		})
+        let tl = new TimelineLite({delay:0.5} )
+
+                .add('intro')
+                .from("#lineLeft", 1, { width:0 }, 'intro')
+                .from("#lineRight", 1, { width:0 }, 'intro')
+
     }
 
     makeTrustedImage(item) {

@@ -16,7 +16,9 @@ div(class="contenedor" [class.isMobile]="mobileQuery.matches")
         mat-sidenav(#snav [mode]="'over'" [fixedInViewport]="mobileQuery.matches" [opened]="false")
             mat-nav-list
                 mat-list-item(*ngFor="let nav of navs; let i = index" [routerLink]="nav.route" [routerLinkActive]="['active-nav']" (click)="snav.toggle()" )
-                    h1 {{nav.nombre}}
+                    .mat-list-text
+                        h1 {{nav.nombre}}
+                        .line
 
         mat-sidenav-content
             div.contenido

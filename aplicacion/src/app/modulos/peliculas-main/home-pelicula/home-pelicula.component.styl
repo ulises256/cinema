@@ -1,10 +1,20 @@
+transition(duracion, delay)
+    -webkit-transition all duracion cubic-bezier(0.445, 0.050, 0.550, 0.950)
+    transition all duracion cubic-bezier(0.445, 0.050, 0.550, 0.950)
+    -webkit-transition-delay delay ease-in-out
+    transition-delay delay ease-in-out
+
 mobile766 = 'only screen and (max-width: 766px)'
 mobile410 = 'only screen and (max-width: 414px)'
+
+*
+    font-family Arial
+
 @font-face
     font-family Book
     font-weight 400
     src url(/assets/fonts/BookAntiqua.ttf)
-    
+
 .home-pelicula
     display flex
     flex-direction row
@@ -29,9 +39,9 @@ mobile410 = 'only screen and (max-width: 414px)'
                 justify-content center
                 align-items center
                 height 100%
-                h3 
+                h3
                     font-size 34px
-                    height 20px         
+                    height 20px
         .titulo-medium
             .titulo
                 display flex
@@ -40,6 +50,7 @@ mobile410 = 'only screen and (max-width: 414px)'
                 align-items center
                 height 100%
                 .title
+                    position relative
                     h1
                         font-family: Book
                         @media mobile766
@@ -48,29 +59,27 @@ mobile410 = 'only screen and (max-width: 414px)'
                         height 10px
                     p
                         font-size 54px
-                    .line-white
-                        @media mobile766
-                            font-size 331px                        
-                        position absolute
-                        background-color white
-                        width 250px
-                        height 1px
+                    img
+                        position relative
+                        margin 5px 0
+                    .line-content
+                        width 100%
+
                 .empezar
                     cursor pointer
+                    position relative
                     @media mobile766
                         margin-top 35px
-                    h3 
+                    h3
                         @media mobile766
-                            font-size 20px                    
+                            font-size 20px
                         font-size 50px
                         height 10px
                     .line
-                        position absolute
-                        background-color white
-                        @media mobile766
-                            width 150px 
-                        width 376px
-                        height 1px
+                        width 0
+                    &:hover
+                        .line
+                            width 100%
         .accesos
             display flex
             flex-direction row
@@ -103,10 +112,21 @@ mobile410 = 'only screen and (max-width: 414px)'
                         position absolute
                         background-color white
                         width 200px
-                        height 1px                        
+                        height 1px
             .galeria
                 justify-content flex-start
             .historia
                 justify-content flex-end
 
-
+.line
+    @media mobile766
+        font-size 331px
+    background-color white
+    position absolute
+    width 250px
+    transition(500ms, 0)
+    height 1px
+    &#lineLeft
+        left 0px
+    &#lineRight
+        right 0px

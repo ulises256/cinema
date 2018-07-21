@@ -7,11 +7,17 @@
         .titulo-medium
             .titulo
                 .title
-                    div(class="line-white" id="lineLeft")
-                    h1 {{pelicula?.getNombre()}}
+                    .line-content
+                        .line#lineLeft
+                    img(src="assets/images/laleyendadelacondesadelacasona-01.png")
+                    .line-content
+                        .line#lineRight
+                
+                    //- h1 {{pelicula?.getNombre()}}
                 .empezar((click)="verPelicula()")
                     h3 Empezar Película
-                    div(class="line" id="line")
+                    .line
+                    
         .accesos
             .galeria((click)="verGaleria()")
                 .aceesito([style.backgroundImage]="pelicula && (pelicula.getPortadas()) ? makeTrustedImage(pelicula.getPortadas()[0].imagen) : null")

@@ -7,14 +7,17 @@ animation(animation, duration = 1s, delay = 0s)
     transition all duration ease-in-out !important
     -webkit-transition-delay delay ease-in-out !important
     transition-delay delay ease-in-out !important
+
+
 mobile1250 = 'only screen and (max-width: 1250px)'
 mobile766 = 'only screen and (max-width: 766px)'
 mobile410 = 'only screen and (max-width: 430px)'
 
 main
     width 100%
-    height 100vh
+    min-height 100vh
     display grid
+    grid-column-gap inherit
     grid-template-columns 100% //indica que es de una columna de 100% de anccho
     grid-template-rows 0.5fr 10fr 0.5fr //indica qie son 3 filas
     background-color black
@@ -37,7 +40,7 @@ main
                     a
                         height 64px
                         img
-                            width 100%
+
                             height 100%
                 .busqueda
                     flex 7
@@ -69,7 +72,7 @@ main
 
         #menu-movil
             margin 0px !important
-            transition all 0.5s ease 
+            transition all 0.5s ease
             mat-toolbar-row
                 display flex
                 flex-direction row
@@ -95,7 +98,7 @@ main
             display flex
             flex-direction row
             justify-content center
-            align-content center            
+            align-content center
         .derechos
             flex 3
             color white

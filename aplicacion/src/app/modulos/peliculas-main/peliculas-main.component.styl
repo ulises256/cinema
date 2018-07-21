@@ -1,3 +1,9 @@
+transition(duracion, delay)
+    -webkit-transition all duracion cubic-bezier(0.445, 0.050, 0.550, 0.950)
+    transition all duracion cubic-bezier(0.445, 0.050, 0.550, 0.950)
+    -webkit-transition-delay delay ease-in-out
+    transition-delay delay ease-in-out
+
 mobile766 = 'only screen and (max-width: 766px)'
 mobile410 = 'only screen and (max-width: 414px)'
 
@@ -12,22 +18,39 @@ mat-sidenav
     background-position center center
     background-repeat no-repeat
     background-size cover
-    background-color:  transparent
+    background-color rgba(0, 0, 0 .7)
     position absolute
     mat-nav-list
         width 100%
         height 100%
+        display flex
+        flex-direction column
+        justify-content center
+        align-items center
+        mat-list-item
+            &:hover
+                .line
+                    width 100%
+                h1
+                    transform scale(.9)
         .mat-list-item
             display flex
-            justify-content center
-            align-items center
+            flex-direction column
             height 10.5vh
+            .mat-list-text
             h1
                 @media mobile766
                     font-size 50px
                 color white
-                font-size 100px
-                text-shadow: -5px -5px 5px #aaa;
+                font-size  60px
+                margin 0px
+                transition(500ms , 0)
+            .line
+                height 3px
+                width 0%
+                background-color white
+                transition(500ms , 0)
+
 .contenedor
     display: flex;
     flex-direction: column;
@@ -39,7 +62,7 @@ mat-sidenav
     background-image url("assets/images/condesa_web_inicio_sesion.png")
     background-position center center
     background-repeat no-repeat
-    background-size cover    
+    background-size cover
     h1
         text-align: center
     .nav-toolbar
@@ -81,7 +104,7 @@ mat-sidenav
                     background-color white
                     width 250px
                     height 1px
-                    opacity 0.5             
+                    opacity 0.5
                 flex 7
             .botones
                 @media mobile766
@@ -106,7 +129,7 @@ mat-sidenav
     .footer
         @media mobile410
             flex-direction column
-            height auto 
+            height auto
         display flex
         background-color black
         width 100%
@@ -115,7 +138,7 @@ mat-sidenav
             display flex
             flex-direction row
             justify-content center
-            align-content center            
+            align-content center
         .derechos
             flex 3
             color white
@@ -124,7 +147,7 @@ mat-sidenav
             flex 3
         .separator
             @media mobile766
-                display none        
+                display none
             flex 7
         .iconos-sociales
             flex 3
@@ -138,7 +161,7 @@ mat-sidenav
                 align-items center
             img
                 width 24px
-                height 24px                        
+                height 24px
 
 .isMobile
     .nav-toolbar
